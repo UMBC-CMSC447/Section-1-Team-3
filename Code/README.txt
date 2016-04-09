@@ -7,6 +7,14 @@ NEW INSTRUCTIONS:
 -Install pip if not already installed (very likily that it is) 
 
 -Next, install a python virtual enviroment:
+
+NOTE: It is generally a good idea to install this in an easy to get to place as you will need 
+to go to the directory and activate it everytime you want to run the application.
+(I chose to make the directory and then clone the git repo again inside of that direcotry.This 
+is of course up to you and can always be changed. The virtual enviroment does not
+modify system files or configurations, it is just a standalone python install to a 
+directory. Copy and paste completely moves it and deleteing the directory removes it.)
+
 http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref
 
 The general idea of the virtual enviroment is that it installs python in a local directory.
