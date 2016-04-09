@@ -2,9 +2,14 @@ This is the base code for Django. On your individual development enviroments use
 
 Note commands run from command line are prefeaced with $ or are specified with quotes
 NEW INSTRUCTIONS:
--First step is install python 3.5
+-First step is install python 2.7
+https://www.python.org/downloads/
 
 -Install pip if not already installed (very likily that it is) 
+
+Upadte it just in case it is not up to date upgrade with the command 
+$ python -m pip install --upgrade pip
+
 
 -Next, install a python virtual enviroment:
 
@@ -15,7 +20,7 @@ is of course up to you and can always be changed. The virtual enviroment does no
 modify system files or configurations, it is just a standalone python install to a 
 directory. Copy and paste completely moves it and deleteing the directory removes it.)
 
-http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref
+http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
 The general idea of the virtual enviroment is that it installs python in a local directory.
 This way we can keep all of the extra packages (like django) we need in a single directory,
@@ -38,16 +43,35 @@ Full Instructions:https://docs.djangoproject.com/en/1.9/topics/install/#installi
 	$ pip install Django
 
 -Install Mango DB engine for django
+Now this is a little un orthodox as we are going to replace the Django we just installed with an older version
+this is on purpose. The code we are using is still going ot be the modern Django as out app was generated with 
+Django 1.9.5; however, we need the no-rel database tools from 1.5 so we need to overwrite our python virtual
+enviroment with that.
 
-You can use this for referance but DO NOT FOLLOW IT! FOLLOW THE INSTRUCTIONS HERE INSTEAD:
 Since you already have a django virtual enviroment installed all you need to do is run these commands
 from the virtual enviroment:
 
-$pip install djangotoolbox
+Follow these instructions to get the pip install
+
+Full instructions: http://django-mongodb-engine.readthedocs.org/en/latest/topics/setup.html
+
+Stuff you need:
+
+Install Django-nonrel
+
+$pip install git+https://github.com/django-nonrel/django@nonrel-1.5
+
+install djangotoolbox
+
 $pip install git+https://github.com/django-nonrel/djangotoolbox
 
+install Django MongoDB Engine
+
+$pip install git+https://github.com/django-nonrel/mongodb-engine
+
+
 now everything is installed and your if you run "pip freeze" to get a list of installed packages it should read:
-Django==1.9.5
+Django==1.5.11
 django-mongodb-engine==0.6.0
 djangotoolbox==1.8.0
 pymongo==3.2.2
