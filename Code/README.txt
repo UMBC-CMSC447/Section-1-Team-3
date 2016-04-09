@@ -34,32 +34,32 @@ http://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-direc
 -Now activate you virtual enviroment (Activate the virtual enviroment by running Scripts\activate)
  and install Django
 
-Full Instructions:https://docs.djangoproject.com/en/1.9/topics/install/#installing-official-release
+INSTALLING DJANGO.
 
-	The part you need:
+In order to get Django to work with mongo we need to install a special version of Django that works
+with no-rel database structures like mongo. To do this we need to install Django from source.
 
-	Activate the virtual enviroment by running Scripts\activate
-	From you virtual enviroment run the following command:
-	$ pip install Django
+	Go to this git repo:
+	-https://github.com/django-nonrel/django
+
+	-Click on the "Download ZIP" button to download a zip of the repo
+	
+	-unzip the folder in your virtual enviroment
+
+	-from within your activated virtual enviroment run the following commands
+		$ python setup.py build
+		$ python setup.py install
 
 -Install Mango DB engine for django
-Now this is a little un orthodox as we are going to replace the Django we just installed with an older version
-this is on purpose. The code we are using is still going ot be the modern Django as out app was generated with 
-Django 1.9.5; however, we need the no-rel database tools from 1.5 so we need to overwrite our python virtual
-enviroment with that.
 
 Since you already have a django virtual enviroment installed all you need to do is run these commands
-from the virtual enviroment:
-
-Follow these instructions to get the pip install
+from the virtual enviroment, also since you already have Django installed you just need the last two
+pip install commands:
 
 Full instructions: http://django-mongodb-engine.readthedocs.org/en/latest/topics/setup.html
 
 Stuff you need:
 
-Install Django-nonrel
-
-$pip install git+https://github.com/django-nonrel/django@nonrel-1.5
 
 install djangotoolbox
 
@@ -70,8 +70,10 @@ install Django MongoDB Engine
 $pip install git+https://github.com/django-nonrel/mongodb-engine
 
 
+DATABASE IS ALREADY CONFIGURED so no need to worry about that last step in the full instructions
+
 now everything is installed and your if you run "pip freeze" to get a list of installed packages it should read:
-Django==1.5.11
+Django==1.6.11
 django-mongodb-engine==0.6.0
 djangotoolbox==1.8.0
 pymongo==3.2.2
