@@ -26,7 +26,8 @@ If you are curious as to why we are not uploading the virutal enviroment itself 
 I refer you to this:
 http://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository
 
--Now activate you virtual enviroment as shown before and install Django
+-Now activate you virtual enviroment (Activate the virtual enviroment by running Scripts\activate)
+ and install Django
 
 Full Instructions:https://docs.djangoproject.com/en/1.9/topics/install/#installing-official-release
 
