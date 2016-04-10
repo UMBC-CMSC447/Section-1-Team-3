@@ -87,7 +87,11 @@ pymongo==3.2.2
 -You can start the server with $ python manage.py runserver
 -Now the server is running, use CNTL-C to kill it
 
-To access the poll page go to this url: http://127.0.0.1:8000/polls/
+
+By default, the runserver command starts the dev server on the internal IP at port 8000
+
+Now that the server is running, visit this url: http://127.0.0.1:8000/polls/ with your web
+browser
 
 Now we have a deployable enviroment that we can put anywhere,
 as long as we do all the configuration in the pyhon virtual enviroment.
