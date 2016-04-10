@@ -5,7 +5,11 @@ NEW INSTRUCTIONS:
 -First step is install python 2.7
 https://www.python.org/downloads/
 
+To check if already installed:
+$ python --version
+
 -Install pip if not already installed (very likily that it is) 
+# apt-get install python-pip
 
 Upadte it just in case it is not up to date upgrade with the command 
 $ python -m pip install --upgrade pip
