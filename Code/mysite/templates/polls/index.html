@@ -35,7 +35,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <body>
         <h1>This template page says...</h1>
         hello world! From London! <strong>{{ boldmessage }}</strong><br />
-
+	{% for property in list %}
+	<span>{{ property.Name }}</span>
+	{% endfor %}
     <div id="googleMap" style="width:500px;height:380px;"></div>
     </body>
 

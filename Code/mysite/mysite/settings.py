@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,10 +83,11 @@ print(TEMPLATE_PATH)
 
 DATABASES = {
    'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'my_database'
+      'ENGINE' : 'django.db.backends.sqlite3',
+      'NAME' : '/home/walkmat1/Section-1-Team-3/Code/mysite/mydb'
    }
 }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
