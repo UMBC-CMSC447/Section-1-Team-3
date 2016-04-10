@@ -81,11 +81,12 @@ print(TEMPLATE_PATH)
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-   'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'my_database'
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
