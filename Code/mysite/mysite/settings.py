@@ -76,6 +76,16 @@ TEMPLATE_DIRS = (
 )
 
 print(TEMPLATE_PATH)
+STATIC_PATH = os.path.join(PROJECT_PATH,'static')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+MEDIA_ROOT = os.path.join(PROJECT_PATH,'static')
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/'
 
 
 # Database
