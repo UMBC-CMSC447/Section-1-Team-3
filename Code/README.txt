@@ -35,10 +35,13 @@ If you are curious as to why we are not uploading the virutal enviroment itself 
 I refer you to this:
 http://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository
 
--Now activate you virtual enviroment (Activate the virtual enviroment by running Scripts\activate)
- and install Django
+-Now activate you virtual enviroment
+windows:
+	$ Scripts\activate
+linux:
+	$ source venv/bin/activate
 
-INSTALLING DJANGO.
+INSTALL DJANGO.
 
 In order to get Django to work with mongo we need to install a special version of Django that works
 with no-rel database structures like mongo. To do this we need to install Django from source.
@@ -64,7 +67,6 @@ Full instructions: http://django-mongodb-engine.readthedocs.org/en/latest/topics
 
 Stuff you need:
 
-
 install djangotoolbox
 
 $pip install git+https://github.com/django-nonrel/djangotoolbox
@@ -72,6 +74,10 @@ $pip install git+https://github.com/django-nonrel/djangotoolbox
 install Django MongoDB Engine
 
 $pip install git+https://github.com/django-nonrel/mongodb-engine
+
+INSTALL South
+
+$ pip install south
 
 
 DATABASE IS ALREADY CONFIGURED so no need to worry about that last step in the full instructions
@@ -81,10 +87,13 @@ Django==1.6.11
 django-mongodb-engine==0.6.0
 djangotoolbox==1.8.0
 pymongo==3.2.2
+South==1.0.2
 
 
 -Still staying inside your virtual enviroment, change directories to mysite folder which contains the django code
--You can start the server with $ python manage.py runserver
+-Start the server with
+	$ python manage.py runserver
+
 -Now the server is running, use CNTL-C to kill it
 
 
