@@ -40,6 +40,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
+    'polls',
+    'login',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -75,17 +78,28 @@ TEMPLATE_DIRS = (
 )
 
 print(TEMPLATE_PATH)
+STATIC_PATH = os.path.join(PROJECT_PATH,'static')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+MEDIA_ROOT = os.path.join(PROJECT_PATH,'static')
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-   'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'my_database'
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
