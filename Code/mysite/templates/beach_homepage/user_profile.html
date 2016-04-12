@@ -101,7 +101,11 @@
 								<h2>Welcome {{user.username}}</h2>
 								<span class="byline">Actual Name of user</span>
 							</header>
-							<p>Some junk here idk</p>
+							<p>Properties 
+							  {% for property in test %}
+							  <span>{{test.Name}}</span>
+							  <span>{{test.Owner}}</span>
+							  {% endfor %}</p>
 							<p>More Junk</p>
 						</section>
 					</div>
