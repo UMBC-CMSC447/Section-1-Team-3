@@ -11,6 +11,7 @@ class PropRegistrationForm(forms.Form):
     Location = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Location"))
     #Image = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Image"))
     Owner = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Owner"))
+    Description = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=256)), label=_("Description"))
 
     def clean_username(self):
         try:
