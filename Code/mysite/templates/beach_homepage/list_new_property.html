@@ -53,6 +53,13 @@
 							<header>
 								<h2>Create Property Form</h2>
 								<span class="byline">Form entry</span>
+								    <form method="post" action="list_new_property.html">{% csrf_token %}
+								        <table border="0">
+								            {{ form.as_table }}
+								        </table>
+								        <input type="submit" value="Register" />
+								    </form>
+								    <a href="/">Login</a>
 							</header>
 						</section>
 					</div>
