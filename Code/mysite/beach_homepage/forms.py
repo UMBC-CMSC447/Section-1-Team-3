@@ -9,13 +9,12 @@ class PropRegistrationForm(forms.Form):
     Name = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Property Name"))
     Price = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Price"))
     Location = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Location"))
-    #Image = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Image"))
     Owner = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Owner"))
-    Description = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=256)), label=_("Description"))
-
+    Description = forms.CharField(widget=forms.TextInput(attrs=dict(max_length=256)), label=_("Description"))
+    Image = forms.ImageField()
     def clean_username(self):
         try:
-            prop = property.objects.get(Name__iexact=self.cleaned_data['Name'])
+            prop = property.objects.get_or_create(Name__iexact=self.cleaned_data['Name'])
         except prop.DoesNotExist:
             return self.cleaned_data['Name']
         raise forms.ValidationError(_("The username already exists. Please try another one."))

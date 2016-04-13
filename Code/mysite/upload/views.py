@@ -13,6 +13,7 @@ class ProfileImageView(FormView):
     def form_valid(self, form):
         profile_image = ProfileImage(
             image=self.get_form_kwargs().get('files')['image'])
+
         profile_image.save()
         self.id = profile_image.id
 

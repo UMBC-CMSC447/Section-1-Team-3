@@ -6,7 +6,7 @@ class property(models.Model):
     Price = models.FloatField()
     Location = models.CharField(max_length = 50)
     Owner = models.CharField(max_length = 30)
-    Image = models.CharField(max_length = 30)
+    Image = models.ImageField(upload_to = '.', default = '/no-img.jpg')
     Description = models.CharField(max_length = 256)
 
     def __str__(self):

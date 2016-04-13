@@ -137,14 +137,17 @@ def search(request,data):
 def beach_propregister(request):
     print("I AM CALLED")
     if request.method == 'POST':
-        form = PropRegistrationForm(request.POST)
+        print("GOT STEP ONE")
+        form = PropRegistrationForm(request.POST,request.FILES)
+        print(form)
         if form.is_valid():
             prop = property.objects.create(
                 Name=form.cleaned_data['Name'],
                 Price=form.cleaned_data['Price'],
                 Location=form.cleaned_data['Location'],
-                #Image=form.cleaned_data['Image'],
-                Owner=form.cleaned_data['Owner']
+                Image=form.cleaned_data['Image'],
+                Owner=form.cleaned_data['Owner'],
+                Description = form.cleaned_data['Description']
             )
             print("FORM WAS VALID AND REGISTERED")
             return HttpResponseRedirect('property_search.html')
