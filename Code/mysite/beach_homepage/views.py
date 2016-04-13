@@ -63,15 +63,26 @@ def beach_prop_info(request, data):
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
 def search(request,data):
-    #need to hardcode path to be beach_homepage/search
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
     newPath = request.path[1:]
+    newPath = request.GET['q']
+    print("The new path is:" + request.GET['q'])
+    for house in property.objects.all():
+        print("Looking at " + house.Name + " and " + newPath)
+        if house.Name == newPath:
+            foundProp = house
+            print("FOUND")
     print("---------NEWONE------------")
     print(request.path)
     print("beach_homepage/index.html")
     print(newPath)
     print("---------------------")
     if 'q' in request.GET:
+        sendPath = "prop_info/" + newPath
         message = 'You searched for: %r' % request.GET['q']
+        return HttpResponseRedirect(sendPath)
     else:
         message = 'You submitted an empty form.'
     return HttpResponse(message)
