@@ -42,7 +42,7 @@
 
 				<!-- Logo -->
 				<div id="logo">
-					<h1><a href="#">Piece of Eden Rentals</a></h1>
+					<h1><a href="#">User Profile</a></h1>
 					<!--<span class="tag"></span>-->
 				</div>
 			</div>
@@ -52,15 +52,18 @@
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
+
 				<div class="row">
 
 					<!-- Sidebar -->
 					<div id="sidebar" class="4u">
 						<section>
 							<header>
-								<h2>Put some kind of user options here?</h2>
+								<h2>Avatar</h2>
+
 							</header>
-							<div class="row">
+							<span class="pennant"><span class="fa fa-user"></span></span>
+	<!--						<div class="row">
 								<section class="6u">
 									<ul class="default">
 										<li><a href="#">Option 1</a></li>
@@ -80,7 +83,8 @@
 									</ul>
 								</section>
 							</div>
-						</section>
+			-->
+			<!--			</section>
 						<section>
 							<header>
 								<h2>Maybe have my properties/appointments here?</h2>
@@ -91,7 +95,7 @@
 									<p><a href="#">Name of listing</a></p>
 								</li>
 							</ul>
-						</section>
+						</section>-->
 					</div>
 
 					<!-- Content -->
@@ -99,19 +103,29 @@
 						<section>
 							<header>
 								<h2>Welcome {{user.username}}</h2>
-								<span class="byline">Actual Name of user</span>
+								<span class="byline">
+									User Name:<br>
+  								<input type="text" value = "{{user.username}}" name="UserName"> <br>
+									Password: <br>
+									<input type="password" value = "{{user.password}}" name="Password">
+								</span>
 							</header>
-							<p>Properties 
-							  {% for property in test %}
-							  <span>{{test.Name}}</span>
-							  <span>{{test.Owner}}</span>
-							  {% endfor %}</p>
-							<p>More Junk</p>
+							<p>Public Info</p>
+							<textarea rows="4" cols="50">
+								{{user.publicInfo}}
+							</textarea>
+
 						</section>
 					</div>
-
+					<p>Properties
+						{% for property in test %}
+						<span>{{test.Name}}</span>
+						<span>{{test.Owner}}</span>
+						{% endfor %}</p>
 				</div>
+
 			</div>
+
 		</div>
 	<!-- /Main -->
 
