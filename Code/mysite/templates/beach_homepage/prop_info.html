@@ -23,6 +23,32 @@
 			<link rel="stylesheet" href=  "{% static "static/beach_homepage/css/style.css" %}"/>
 			<link rel="stylesheet" href= "{% static "static/beach_homepage/css/style-desktop.css" %}"/>
 		</noscript>
+		<script
+		src="http://maps.googleapis.com/maps/api/js">
+		</script>
+		<script>
+		var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+
+		function initialize()
+		{
+		var mapProp = {
+		  center:myCenter,
+		  zoom:5,
+		  mapTypeId:google.maps.MapTypeId.ROADMAP
+		  };
+
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+		var marker=new google.maps.Marker({
+		  position:myCenter,
+		  icon:'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Ball-Pink-icon.png'
+		  });
+
+		marker.setMap(map);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
 	</head>
 	<body>
 
@@ -48,31 +74,21 @@
 			<div id="content" class="container">
 				<section>
 					<header>
-						<h2>Property Search</h2>
-						<span class="byline">Still Looking for a good table</span>
+						<h2>Property Info</h2>
 					</header>
-					<p>Thinking of doing a table and the Google Map</p>
 					</section>
 					<section>
-						<form action="/search/" method="get">
-					<input type="text" name="q">
-					<input type="submit" value="Search">
-					<br>
-				</section>
-					<section>
 					</form>
-					{% for property in list %}
 					<br>
 					<hr>
-					<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
-					<span>{{ property.Price }} </span>
-					<span>{{ property.Location }} </span>
-					<span> {{ property.Owner }} </span>
-					<span> {{ property.Image }} </span>
+					<span>{{ list.Name }}</span>
+					<span>{{ list.Price }} </span>
+					<span>{{ list.Location }} </span>
+					<span> {{ list.Owner }} </span>
+					<span> {{ list.Image }} </span>
 					<br>
 					<img src="/static/beach_homepage/images/{{property.Image}}"alt="BeachHouse" style="width:304px;height:228px;">
-					<br>
-					{% endfor %}
+				    <div id="googleMap" style="width:500px;height:380px;"></div>
 					<br>
 				</section>
 			</div>

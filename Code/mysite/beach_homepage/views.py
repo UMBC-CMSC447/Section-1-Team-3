@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.http import HttpResponse
+import re
 # Create your views here.
 
 
@@ -38,6 +39,26 @@ def index(request):
     # Note that the first parameter is the template we wish to use.
     #return render_to_response(newPath, {'user' : request.user,'house' : test}, context)
     return render_to_response(newPath,{'list':properties},context)
+
+def beach_prop_info(request, data):
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    print("The new path is:" + newPath[2])
+    for house in property.objects.all():
+        print("Looking at " + house.Name + " and " + newPath[2])
+        if house.Name == newPath[2]:
+            foundProp = house
+            print("FOUND")
+    print("-----------INDEX----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "beach_homepage/prop_info.html"
+    print("---------------------")
+    return render_to_response(newPath,{'list':foundProp},context)
 
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html

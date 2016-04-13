@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 from beach_homepage.views import search
 from beach_homepage.views import beach_propregister
+from beach_homepage.views import beach_prop_info
 from login.views import *
 from regProperty.views import *
 admin.autodiscover()
@@ -23,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^home/$', home),
     url(r'^search/(.*)',search),
     url(r'^beach_homepage/list_new_property.html',beach_propregister),
+    url(r'^beach_homepage/prop_info/(.*)',beach_prop_info),
     #it is important that this goes last like it is
     url(r'^beach_homepage/(.*)', include('beach_homepage.urls')),
 )
