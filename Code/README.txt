@@ -1,109 +1,155 @@
-This is the base code for Django. On your individual development enviroments use the following commands to start the application:
+This is the base code for Django.
 
-Note commands run from command line are prefeaced with $ or are specified with quotes
+Contents
+
+PART A: Installing Virtual Environment
+PART B: Running Virtual Environment
+PART C: Notes
+
+##############################################################
+
+PART A: Installing Virtual Environment
+
+Note: Commands run from command line are prefeaced with $
+
 NEW INSTRUCTIONS:
--First step is install python 2.7
-https://www.python.org/downloads/
 
-To check if already installed:
-$ python --version
+1. Install python 2.7
 
--Install pip if not already installed (very likily that it is) 
-# apt-get install python-pip
+	Check if already installed:
+	
+	$ python --version
 
-Upadte it just in case it is not up to date upgrade with the command 
-$ python -m pip install --upgrade pip
+	Install:
+	Windows:
+		https://www.python.org/downloads/
+	Linux
+		#apt-get install python
 
+2. Install pip if not already installed (very likily that it is)
 
--Next, install a python virtual enviroment:
+	Update it just in case it is not up to date
+		$ python -m pip install --upgrade pip
 
-NOTE: It is generally a good idea to install this in an easy to get to place as you will need 
-to go to the directory and activate it everytime you want to run the application.
-(I chose to make the directory and then clone the git repo again inside of that direcotry.This 
-is of course up to you and can always be changed. The virtual enviroment does not
-modify system files or configurations, it is just a standalone python install to a 
-directory. Copy and paste completely moves it and deleteing the directory removes it.)
+	If not already Installed
+	Linux:
+		# apt-get install python-pip
 
-http://docs.python-guide.org/en/latest/dev/virtualenvs/
+3a. Install python virtual enviroment:
 
-The general idea of the virtual enviroment is that it installs python in a local directory.
-This way we can keep all of the extra packages (like django) we need in a single directory,
-this way at the end we can zip the directory and upload it to our repo and now we have a 
-deployable product.
+	$ pip install virtualenv
 
-If you are curious as to why we are not uploading the virutal enviroment itself to the git repo,
-I refer you to this:
-http://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository
+3b. Set up virtual environment
 
--Now activate you virtual enviroment
+	To create folder venv (or name of your choosing) containing python executables and copy of pip library to install other packages
+
+	$ virtualenv venv
+
+	Reference: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+	NOTES: It is a good idea to install this in an easy to get to place. You will will need to go to the directory and activate the virtual environment everytime you want to run the application.
+
+	Suggest making the directory and then clone the git repo again inside of that directory.
+
+	The virtual enviroment does not modify system files or configurations, it is just a standalone python install to a directory. Copy and paste completely moves it and deleteing the directory removes it.)
+
+	The virtual enviroment installs python in a local directory. This way we can keep all of the extra packages (django, mangoDB, South) we need in a single directory. At the end we can zip the directory and upload it to our repo as a deployable product.
+
+4. Activate your virtual enviroment
+
 windows:
 	$ Scripts\activate
 linux:
 	$ source venv/bin/activate
 
-INSTALL DJANGO.
+Packages
 
-In order to get Django to work with mongo we need to install a special version of Django that works
-with no-rel database structures like mongo. To do this we need to install Django from source.
+5. DJANGO.
 
-	Go to this git repo:
-	-https://github.com/django-nonrel/django
+	In order to get Django to work with mongo we need to install a special version of Django that works with no-rel database structures like mongo. To do this we need to install Django from source.
 
-	-Click on the "Download ZIP" button to download a zip of the repo
+5a. Go to this git repo:
+		https://github.com/django-nonrel/django
+
+5b. Click on the "Download ZIP" button to download a zip of the repo
 	
-	-unzip the folder in your virtual enviroment
+5c. Unzip the folder in your virtual enviroment
 
-	-from within your activated virtual enviroment run the following commands
+5d. From within your ACTIVATED virtual enviroment run the following commands:
+
 		$ python setup.py build
 		$ python setup.py install
 
--Install Mango DB engine for django
+6. Install MangoDB engine for django
 
-Since you already have a django virtual enviroment installed all you need to do is run these commands
-from the virtual enviroment, also since you already have Django installed you just need the last two
-pip install commands:
+	From ACTIVATED virtual environment:
 
-Full instructions: http://django-mongodb-engine.readthedocs.org/en/latest/topics/setup.html
+6a. Install Djangotoolbox
 
-Stuff you need:
+	$pip install git+https://github.com/django-nonrel/djangotoolbox
 
-install djangotoolbox
+6b. Install Django MongoDB Engine
 
-$pip install git+https://github.com/django-nonrel/djangotoolbox
+	$pip install git+https://github.com/django-nonrel/mongodb-engine
 
-install Django MongoDB Engine
+	Reference: http://django-mongodb-engine.readthedocs.org/en/latest/topics/setup.html
 
-$pip install git+https://github.com/django-nonrel/mongodb-engine
+	Note: DATABASE IS ALREADY CONFIGURED so no need to worry about that last step in the full instructions.
 
-INSTALL South
+7. Install South
 
-$ pip install south
+	$ pip install south
 
+8. Check packages
 
-DATABASE IS ALREADY CONFIGURED so no need to worry about that last step in the full instructions
+	From ACTIVATED virtual environment
 
-now everything is installed and your if you run "pip freeze" to get a list of installed packages it should read:
-Django==1.6.11
-django-mongodb-engine==0.6.0
-djangotoolbox==1.8.0
-pymongo==3.2.2
-South==1.0.2
+	$ pip freeze
 
+	to list all installed packagesYou should see this:
 
--Still staying inside your virtual enviroment, change directories to mysite folder which contains the django code
--Start the server with
+	Django==1.6.11
+	django-mongodb-engine==0.6.0
+	djangotoolbox==1.8.0
+	pymongo==3.2.2
+	South==1.0.2
+
+Install Complete
+
+PART B: Running Virtual Environment
+
+You should have completed Part A at this point.
+
+To Run the Server:
+
+1. Enter virtual environment:
+
+	windows:
+		$ Scripts\activate
+	linux:
+		$ source venv/bin/activate
+
+2. Change directory:
+
+	Section-1-Team-3/Code/mysite
+
+3. Start Server
+
 	$ python manage.py runserver
 
--Now the server is running, use CNTL-C to kill it
+
+The server is now running, use CNTL-C to kill it
+
+	Visit:
+
+		http://127.0.0.1:8000/polls/
+		http://127.0.0.1:8000/beach_homepage/index.html
 
 
-By default, the runserver command starts the dev server on the internal IP at port 8000
+PART C: Notes
 
-Now that the server is running, visit this url: http://127.0.0.1:8000/polls/ with your web
-browser
+	Runserver command starts the dev server on the internal IP at port 8000
 
-Now we have a deployable enviroment that we can put anywhere,
-as long as we do all the configuration in the pyhon virtual enviroment.
-To see what packages you have installed use the "pip freeze" command
-If you have any packages installed that do not already appear in our requirements.txt
-add them to it. 
+	Now we have a deployable enviroment that we can put anywhere, as long as we do all the configuration in the pyhon virtual enviroment.
+
+	If you add any packages, check which packages with $ pip freeze and please add them to the list in step 8.
