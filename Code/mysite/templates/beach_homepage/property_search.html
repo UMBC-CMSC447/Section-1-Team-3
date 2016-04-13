@@ -57,8 +57,20 @@
 						<form action="/search/" method="get">
 					<input type="text" name="q">
 					<input type="submit" value="Search">
-			</form>
-						</section
+					<br>
+				</section>
+					<section>
+					</form>
+					{% for property in list %}
+					<br>
+					<span>{{ property.Name }}</span>
+					<span>{{ property.Price }} </span>
+					<span>{{ property.Location }} </span>
+					<span> {{ property.Owner }} </span>
+					<br>
+					{% endfor %}
+					<br>
+				</section>
 			</div>
 		</div>
 	<!-- /Main -->

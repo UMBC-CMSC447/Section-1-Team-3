@@ -32,10 +32,13 @@ def index(request):
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     context_dict = {'boldmessage': "I am bold font from the context"}
     test = property.objects.all()
+    properties = property.objects.all()
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
-    return render_to_response(newPath, {'user' : request.user,'house' : test}, context)
+    #return render_to_response(newPath, {'user' : request.user,'house' : test}, context)
+    return render_to_response(newPath,{'list':properties},context)
+
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
 def search(request,data):
