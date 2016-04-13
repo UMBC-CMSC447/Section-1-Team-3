@@ -166,7 +166,7 @@ def propregister_success(request):
     return render_to_response(
     '/beach_homepage/property_search.html',
     )
-    def beach_userregister(request):
+def beach_userregister(request):
         print("I AM CALLED!!!")
         if request.method == 'POST':
             form = RegistrationForm(request.POST)
@@ -189,7 +189,7 @@ def propregister_success(request):
         variables,
         )
 
-    def userregister_success(request):
+def userregister_success(request):
         return render_to_response(
         '/beach_homepage/user_profile.html',
         )
