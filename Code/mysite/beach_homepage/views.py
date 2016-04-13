@@ -67,7 +67,7 @@ def beach_propregister(request):
                 Owner=form.cleaned_data['Owner']
             )
             print("FORM WAS VALID AND REGISTERED")
-            return HttpResponseRedirect('index.html')
+            return HttpResponseRedirect('property_search.html')
     else:
         form = PropRegistrationForm()
 
@@ -81,5 +81,5 @@ def beach_propregister(request):
 
 def propregister_success(request):
     return render_to_response(
-    '/beach_homepage/index.html',
+    '/beach_homepage/property_search.html',
     )
