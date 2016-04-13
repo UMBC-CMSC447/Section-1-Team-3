@@ -2,9 +2,15 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.shortcuts import render
-from polls.models import property
-# Create your views here.
+from beach_homepage.models import property
+from beach_homepage.forms import *
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_protect
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
 from django.http import HttpResponse
+# Create your views here.
 
 
 def index(request):
@@ -14,9 +20,9 @@ def index(request):
     # The context contains information such as the client's machine details, for example.
     context = RequestContext(request)
     #to parse request object
-    #https://code.djangoproject.com/wiki/HttpRequest
+    #https://code.djangoproject.com/wiki/HttpRsequest
     newPath = request.path[1:]
-    print("---------------------")
+    print("-----------INDEX----------")
     print(request.path)
     print("beach_homepage/index.html")
     print(newPath)
@@ -45,3 +51,32 @@ def search(request,data):
     else:
         message = 'You submitted an empty form.'
     return HttpResponse(message)
+@csrf_protect
+def beach_propregister(request):
+    print("I AM CALLED")
+    if request.method == 'POST':
+        form = PropRegistrationForm(request.POST)
+        if form.is_valid():
+            prop = property.objects.create(
+                Name=form.cleaned_data['Name'],
+                Price=form.cleaned_data['Price'],
+                Location=form.cleaned_data['Location'],
+                Owner=form.cleaned_data['Owner']
+            )
+            print("FORM WAS VALID AND REGISTERED")
+            return HttpResponseRedirect('index.html')
+    else:
+        form = PropRegistrationForm()
+
+    variables = RequestContext(request, {
+        'form': form
+    })
+    return render_to_response(
+    'beach_homepage/list_new_property.html',
+    variables,
+    )
+
+def propregister_success(request):
+    return render_to_response(
+    '/beach_homepage/index.html',
+    )

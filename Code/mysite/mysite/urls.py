@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from beach_homepage.views import search
+from beach_homepage.views import beach_propregister
 from login.views import *
 from regProperty.views import *
 admin.autodiscover()
@@ -10,7 +11,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^beach_homepage/(.*)', include('beach_homepage.urls')),
+
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', include(admin.site.urls)),
 #    url(r'^logout/$', logout_page),
@@ -21,6 +22,9 @@ urlpatterns = patterns('',
     url(r'^propregister/success/$', propregister_success),
     url(r'^home/$', home),
     url(r'^search/(.*)',search),
+    url(r'^beach_homepage/list_new_property.html',beach_propregister),
+    #it is important that this goes last like it is
+    url(r'^beach_homepage/(.*)', include('beach_homepage.urls')),
 )
 if settings.DEBUG:
     urlpatterns += patterns('',
