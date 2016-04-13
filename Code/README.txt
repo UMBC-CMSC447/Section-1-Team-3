@@ -144,6 +144,7 @@ The server is now running, use CNTL-C to kill it
 
 		http://127.0.0.1:8000/polls/
 		http://127.0.0.1:8000/beach_homepage/index.html
+		http://127.0.0.1:8000/accounts/login/
 
 
 PART C: Notes
