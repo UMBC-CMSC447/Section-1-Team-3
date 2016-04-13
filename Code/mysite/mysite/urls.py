@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
+from beach_homepage.views import search
 from login.views import *
 from regProperty.views import *
 admin.autodiscover()
@@ -19,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^propregister/$', propregister),
     url(r'^propregister/success/$', propregister_success),
     url(r'^home/$', home),
+    url(r'^search/(.*)',search),
 )
 if settings.DEBUG:
     urlpatterns += patterns('',
