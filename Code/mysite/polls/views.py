@@ -6,6 +6,7 @@ from polls.models import property
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView, View
 # Create your views here.
+from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 
 def MyView(request):
@@ -36,7 +37,6 @@ def index(request):        #return HttpResponse("Hello, world. You're at the pol
         # We make use of the shortcut function to make our lives easier.
         # Note that the first parameter is the template we wish to use.
     return render_to_response('polls/index.html', {'list':properties},context)
-        
         
         
 class CreatePropertyView(CreateView):

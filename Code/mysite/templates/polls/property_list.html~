@@ -1,0 +1,5 @@
+<h1>Properties</h1>
+<ul>
+  {% for property in object_list %}
+  <li class = "property">{{property}}</li>
+</ul>
