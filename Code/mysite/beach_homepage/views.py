@@ -64,6 +64,7 @@ def beach_propregister(request):
                 Name=form.cleaned_data['Name'],
                 Price=form.cleaned_data['Price'],
                 Location=form.cleaned_data['Location'],
+                #Image=form.cleaned_data['Image'],
                 Owner=form.cleaned_data['Owner']
             )
             print("FORM WAS VALID AND REGISTERED")

@@ -63,14 +63,17 @@
 					</form>
 					{% for property in list %}
 					<br>
+					<hr>
 					<span>{{ property.Name }}</span>
 					<span>{{ property.Price }} </span>
 					<span>{{ property.Location }} </span>
 					<span> {{ property.Owner }} </span>
+					<span> {{ property.Image }} </span>
 					<br>
+					<img src="/static/beach_homepage/images/{{property.Image}}"alt="BeachHouse" style="width:304px;height:228px;">
 					{% endfor %}
 					<br>
-				</section>
+			</section>
 			</div>
 		</div>
 	<!-- /Main -->
