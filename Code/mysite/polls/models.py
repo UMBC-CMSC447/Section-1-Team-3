@@ -9,3 +9,5 @@ class property(models.Model):
 
     def __str__(self):
         return self.Name
+    #def create(cls,Name,Price,Location,Owner):
+    #    prop = cls(Name = Name

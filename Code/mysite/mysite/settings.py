@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'south',
     'polls',
     'login',
+    'regProperty',
 )
 
 MIDDLEWARE_CLASSES = (
