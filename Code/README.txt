@@ -2,12 +2,15 @@ This is the base code for Django.
 
 Contents
 
-PART A: Installing virtual environment
+PART A: Installing Virtual Environment
 PART B: Running Virtual Environment
+PART C: Notes
+
+##############################################################
+
+PART A: Installing Virtual Environment
 
 Note: Commands run from command line are prefeaced with $
-
-PART A
 
 NEW INSTRUCTIONS:
 
@@ -111,8 +114,13 @@ Packages
 	pymongo==3.2.2
 	South==1.0.2
 
+Install Complete
 
-Everything Should be Set up at this point. To Run the Server, change to directory
+PART B: Running Virtual Environment
+
+You should have completed Part A at this point.
+
+To Run the Server:
 
 1. Enter virtual environment:
 
@@ -129,11 +137,18 @@ Everything Should be Set up at this point. To Run the Server, change to director
 
 	$ python manage.py runserver
 
-	The server is now running, use CNTL-C to kill it
+
+The server is now running, use CNTL-C to kill it
+
+	Visit:
+
+		http://127.0.0.1:8000/polls/
+		http://127.0.0.1:8000/beach_homepage/index.html
+
+
+PART C: Notes
 
 	Runserver command starts the dev server on the internal IP at port 8000
-
-	Try it by visiting: http://127.0.0.1:8000/polls/ in your browser
 
 	Now we have a deployable enviroment that we can put anywhere, as long as we do all the configuration in the pyhon virtual enviroment.
 
