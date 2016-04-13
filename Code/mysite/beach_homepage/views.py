@@ -40,6 +40,48 @@ def index(request):
     #return render_to_response(newPath, {'user' : request.user,'house' : test}, context)
     return render_to_response(newPath,{'list':properties},context)
 
+def beach_index(request):
+    #return HttpResponse("Hello, world. You're at the polls index.")
+
+    # Request the context of the request.
+    # The context contains information such as the client's machine details, for example.
+    context = RequestContext(request)
+    #to parse request object
+    #https://code.djangoproject.com/wiki/HttpRsequest
+    newPath = "beach_homepage/index.html"
+    print("-----------INDEX----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    print("---------------------")
+
+    # Construct a dictionary to pass to the template engine as its context.
+    # Note the key boldmessage is the same as {{ boldmessage }} in the template!
+    context_dict = {'boldmessage': "I am bold font from the context"}
+    # Return a rendered response to send to the client.
+    # We make use of the shortcut function to make our lives easier.
+    # Note that the first parameter is the template we wish to use.
+    #return render_to_response(newPath, {'user' : request.user,'house' : test}, context)
+    #return HttpResponseRedirect("beach_homepage/index.html")
+    #return render_to_response("beach_homepage/index.html",context)
+    return HttpResponseRedirect("/beach_homepage/index.html")
+
+def beach_redirect(request):
+    context = RequestContext(request)
+    #to parse request object
+    #https://code.djangoproject.com/wiki/HttpRsequest
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    print("-----------INDEX----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "/" + newPath[0] + "/" + newPath[2]
+    print("now")
+    print(newPath)
+    print("---------------------")
+    return HttpResponseRedirect(newPath)
+
 def beach_prop_info(request, data):
     context = RequestContext(request)
     properties = property.objects.all()

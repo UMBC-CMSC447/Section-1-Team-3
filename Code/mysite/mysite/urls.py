@@ -4,6 +4,8 @@ from django.contrib import admin
 from beach_homepage.views import search
 from beach_homepage.views import beach_propregister
 from beach_homepage.views import beach_prop_info
+from beach_homepage.views import beach_index
+from beach_homepage.views import beach_redirect
 from login.views import *
 from regProperty.views import *
 admin.autodiscover()
@@ -22,9 +24,14 @@ urlpatterns = patterns('',
     url(r'^propregister/$', propregister),
     url(r'^propregister/success/$', propregister_success),
     url(r'^home/$', home),
+    url(r'^search/prop_info/index.html',beach_index),
+    url(r'^beach_homepage/prop_info/list_new_property.html',beach_redirect),
+    url(r'^beach_homepage/prop_info/user_profile.html',beach_redirect),
+    url(r'^beach_homepage/prop_info/list_new_property.html',beach_redirect),
     url(r'^search/prop_info/(.*)',beach_prop_info),
     url(r'^search/(.*)',search),
     url(r'^beach_homepage/list_new_property.html',beach_propregister),
+    url(r'^beach_homepage/prop_info/index.html',beach_index),
     url(r'^beach_homepage/prop_info/(.*)',beach_prop_info),
     #it is important that this goes last like it is
     url(r'^beach_homepage/(.*)', include('beach_homepage.urls')),
