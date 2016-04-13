@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from beach_homepage.views import search
 from beach_homepage.views import sort
 from beach_homepage.views import beach_propregister
+from beach_homepage.views import beach_userregister
 from beach_homepage.views import beach_prop_info
 from beach_homepage.views import beach_index
 from beach_homepage.views import beach_redirect
@@ -39,6 +40,7 @@ urlpatterns = patterns('',
     url(r'^sort/(.*)',sort),
     url(r'^search/(.*)',search),
     url(r'^beach_homepage/list_new_property.html',beach_propregister),
+    url(r'^beach_homepage/create_user.html',beach_userregister),
     url(r'^beach_homepage/prop_info/index.html',beach_index),
     url(r'^beach_homepage/prop_info/(.*)',beach_prop_info),
     #it is important that this goes last like it is

@@ -166,3 +166,30 @@ def propregister_success(request):
     return render_to_response(
     '/beach_homepage/property_search.html',
     )
+    def beach_userregister(request):
+        print("I AM CALLED!!!")
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password1'],
+                email=form.cleaned_data['email']
+                )
+                print("FORM WAS VALID AND REGISTERED")
+                return HttpResponseRedirect('user_profile.html')
+        else:
+            form = RegistrationForm()
+
+        variables = RequestContext(request, {
+            'form': form
+        })
+        return render_to_response(
+        'beach_homepage/create_user.html',
+        variables,
+        )
+
+    def userregister_success(request):
+        return render_to_response(
+        '/beach_homepage/user_profile.html',
+        )
