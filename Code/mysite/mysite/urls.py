@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from beach_homepage.views import search
+from beach_homepage.views import sort
 from beach_homepage.views import beach_propregister
 from beach_homepage.views import beach_prop_info
 from beach_homepage.views import beach_index
@@ -29,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^beach_homepage/prop_info/user_profile.html',beach_redirect),
     url(r'^beach_homepage/prop_info/list_new_property.html',beach_redirect),
     url(r'^search/prop_info/(.*)',beach_prop_info),
+    url(r'^sort/(.*)',sort),
     url(r'^search/(.*)',search),
     url(r'^beach_homepage/list_new_property.html',beach_propregister),
     url(r'^beach_homepage/prop_info/index.html',beach_index),

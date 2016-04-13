@@ -102,6 +102,11 @@ def beach_prop_info(request, data):
     print("---------------------")
     return render_to_response(newPath,{'list':foundProp},context)
 
+
+
+def sort(request,data):
+    return HttpResponseRedirect("/beach_homepage/index.html")
+
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
 def search(request,data):

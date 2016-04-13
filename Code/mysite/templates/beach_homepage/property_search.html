@@ -55,12 +55,28 @@
 					</section>
 					<section>
 						<form action="/search/" method="get">
-					<input type="text" name="q">
-					<input type="submit" value="Search">
-					<br>
-				</section>
+							<input type="text" name="q">
+							<input type="submit" value="Search">
+						</form>
+					<br><br>
+						<form action="/sort/" method="get">
+								Filter by: <br>
+								Price Below: <input type="textbox" id="PriceBelow">
+								Price Above: <input type="textbox" id="PriceAbove">
+								Price Above: <input type="textbox" id="PriceAbove"> <br>
+								Sort by: <br>
+								<select>
+									<option value="Oldest">Oldest</option>
+								  <option value="Most Recent">Most Recent</option>
+								  <option value="Alphabetical">Alphabetical</option>
+								  <option value="Price(low to high)">Price(low to high)</option>
+								  <option value="Price(high to low)">Price(high to low)</option>
+								</select>
+								<br>
+								<input type="submit" value="Apply">
+							</form>
+					</section>
 					<section>
-					</form>
 					{% for property in list %}
 					<br>
 					<hr>
