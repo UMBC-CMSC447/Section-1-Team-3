@@ -153,3 +153,10 @@ PART C: Notes
 	Now we have a deployable enviroment that we can put anywhere, as long as we do all the configuration in the pyhon virtual enviroment.
 
 	If you add any packages, check which packages with $ pip freeze and please add them to the list in step 8.
+
+	Important Files: (PLEASE ADD TO THIS LIST)
+
+	mysite/mysite/settings.py
+	mysite/mysite/urls.py
+	mysite/beach_homepage/views.py
+	mysite/login/*
