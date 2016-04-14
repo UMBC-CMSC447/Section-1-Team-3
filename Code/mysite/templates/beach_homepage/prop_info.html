@@ -81,14 +81,25 @@
 					</form>
 					<br>
 					<hr>
-					<span>{{ list.Name }}</span>
-					<span>{{ list.Price }} </span>
-					<span>{{ list.Location }} </span>
-					<span> {{ list.Owner }} </span>
-					<span> {{ list.Image.url }} </span>
+					<span>Name: {{ list.Name }}</span>
+					<span>Price per Night: {{ list.Price }} </span>
+					<span>Location: {{ list.Location }} </span>
+					<span>Owner:{{ list.Owner }} </span><br>
+					<span> {{ list.Description}} </span>
 					<br>
 					<img src="{{list.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
-				    <div id="googleMap" style="width:500px;height:380px;"></div>
+					{% if list.Rent != 0 %}
+						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
+					{%endif%}
+					{% if list.Rent == 0 %}
+						<img src="http://www.hsaforamerica.com/healthcare-debate-blog/wp-content/uploads/2013/03/h-38.gif" width=100px height=100px alt="Available">
+						<form method="post" name="rentForm" action="/beach_homepage/rent_prop/{{list.Name}}">
+								{% csrf_token %}
+							 	Number of Nights <input type="text" name="numNights">
+								<input type="submit" value="RENT!">
+						</form>
+					{%endif%}
+						<div id="googleMap" style="width:500px;height:380px;"></div>
 
 						<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=umbc.edu_por8rnk2t65emujmgrnbgsbieo%40group.calendar.google.com&amp;color=%23182C57&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					<br>
