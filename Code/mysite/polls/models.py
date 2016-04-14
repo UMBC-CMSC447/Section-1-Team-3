@@ -8,6 +8,7 @@ class property(models.Model):
     Owner = models.CharField(max_length = 30)
     Image = models.ImageField(upload_to = '.', default = '/no-img.jpg')
     Description = models.CharField(max_length = 256)
+    Rent = models.IntegerField()
 
     def __str__(self):
         return self.Name
