@@ -49,7 +49,6 @@
 				<section>
 					<header>
 						<h2>Property Search</h2>
-						<span class="byline">Still Looking for a good table</span>
 					</header>
 					<p>Thinking of doing a table and the Google Map</p>
 					</section>
@@ -81,13 +80,18 @@
 					<br>
 					<hr>
 					<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
-					<span>{{ property.Price }} </span>
-					<span>{{ property.Location }} </span>
-					<span> {{ property.Owner }} </span>
-					<span> {{ property.Description}} </span>
-					<span> {{ property.Image }} </span>
+					<span>Price per Night: {{ property.Price }} </span>
+					<span>Location: {{ property.Location }} </span>
+					<span>Owner: {{ property.Owner }} </span>
 					<br>
-					<img src="/static/beach_homepage/images/{{property.Image}}"alt="BeachHouse" style="width:304px;height:228px;">
+					<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
+					{% if property.Rent != 0 %}
+						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
+					{%endif%}
+					{% if property.Rent == 0 %}
+						<img src="http://www.hsaforamerica.com/healthcare-debate-blog/wp-content/uploads/2013/03/h-38.gif" width=100px height=100px alt="Available">
+					{%endif%}
+					<span> {{ property.Description}} </span>
 					<br>
 					{% endfor %}
 					<br>

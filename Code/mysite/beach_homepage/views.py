@@ -106,6 +106,33 @@ def beach_prop_info(request, data):
 
 def sort(request,data):
     return HttpResponseRedirect("/beach_homepage/index.html")
+@csrf_protect
+def beach_rentProperty(request, data):
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    form = request.POST
+    print(form)
+    print("Data")
+    print(data)
+    #print("The new path is:" + newPath)
+    for house in property.objects.all():
+        print("Looking at " + house.Name + " and " + newPath[2])
+        if house.Name == newPath[2]:
+            foundProp = house
+            foundProp.Rent = 1
+            foundProp.save()
+            print("FOUND")
+    print("-----------RENTING----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "beach_homepage/index.html"
+    print("---------------------")
+    beach_redirect(request)
+    return render_to_response(newPath,{'list':foundProp},context)
 
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
