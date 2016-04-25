@@ -13,6 +13,7 @@ from django.http import HttpResponse
 import re
 # Create your views here.
 
+dict = {'Ocean City' : [38.336502, -75.084908], 'Park Place' : [36.863140,-76.015778]}
 
 def index(request):
     #return HttpResponse("Hello, world. You're at the polls index.")
@@ -93,6 +94,9 @@ def beach_prop_info(request, data):
         print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
+            if house.Location in dict:
+                place_lat = dict[house.Location][0]
+                place_long = dict[house.Location][1]
             print("FOUND")
     print("-----------INDEX----------")
     print(request.path)
@@ -100,6 +104,8 @@ def beach_prop_info(request, data):
     print(newPath)
     newPath = "beach_homepage/prop_info.html"
     print("---------------------")
+    print("CONTECXT")
+    print(context)
     return render_to_response(newPath,{'list':foundProp},context)
 
 
