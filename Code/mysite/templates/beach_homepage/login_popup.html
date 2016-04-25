@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+
+{% load staticfiles %} 
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static "beach_homepage/js/skel.min.js" %}"></script>
+    <script src="{% static "beach_homepage/js/skel-panels.min.js" %}"></script>
+    <script src="{% static "beach_homepage/js/init.js" %}"></script>
+    <noscript>
+      <link rel="stylesheet" href= "{% static "static/beach_homepage/css/skel-noscript.css" %}" />
+      <link rel="stylesheet" href=  "{% static "static/beach_homepage/css/style.css" %}"/>
+      <link rel="stylesheet" href= "{% static "static/beach_homepage/css/style-desktop.css" %}"/>
+    </noscript>
+
+</head>
+  <body>
+
+  <!-- Header -->
+    <div id="header">
+      <div id="nav-wrapper">
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="user_profile.html">User Profile</a></li>
+            <li  class="active"><a href="list_new_property.html">List a Property</a></li>
+            <li><a href="property_search.html">Search Properties</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  <!-- Header -->
+
+  <!-- Main -->
+    <div id="main">
+      <div class="container">
+        <div class="row">
+
+          <!-- Content -->
+          <div id="content" class="8u skel-cell-important">
+            <section>
+              <header>
+                <h2>Login</h2>
+                <br>
+                <form method="post" action="login_popup.html">{% csrf_token %}
+                <table border="0">
+                      <tr><th><label for="id_username">Username:</label></th><td>{{ form.username }}</td></tr>
+                      <tr><th><label for="id_password">Password:</label></th><td>{{ form.password }}</td></tr>
+                </table>
+                <input type="submit" value="Login" />
+                <input type="hidden" name="next" value="/home" />
+                </form>
+              </header>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- /Main -->
+
+  <!-- quote -->
+    <div id="tweet">
+      <div class="container">
+        <section>
+          <blockquote>&ldquo;On the beach, you can live in bliss. --Dennis Wilson of the Beach Boys&rdquo;</blockquote>
+        </section>
+      </div>
+    </div>
+  <!-- /quote -->
+
+  <!-- Copyright -->
+    <div id="copyright">
+      <div class="container">
+        Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+      </div>
+    </div>
+
+
+  </body>
+
+
+
+
+
+
+
+
+<body>
+  <div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Log in</h2>
+
+    <form class="login-container">
+      <p><input type="email" placeholder="Email"></p>
+      <p><input type="password" placeholder="Password"></p>
+      <p><input type="submit" value="Log in"></p>
+    </form>
+  </div>
+</body>
+</html>
