@@ -87,6 +87,9 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span>
 					<br>
+					{% if user.is_superuser %}
+					<input type="submit" value="APPROVE!">
+					{%endif%}
 					<img src="{{list.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
 					{% if list.Rent != 0 %}
 						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
@@ -95,7 +98,12 @@
 						<img src="http://www.hsaforamerica.com/healthcare-debate-blog/wp-content/uploads/2013/03/h-38.gif" width=100px height=100px alt="Available">
 						<form method="post" name="rentForm" action="/beach_homepage/rent_prop/{{list.Name}}">
 								{% csrf_token %}
-							 	Number of Nights <input type="text" name="numNights">
+							 	<br>
+								Start: <input type="date" name="start" > <br>
+								End: <input type="date" name="end" >
+								<br>
+								Number of Nights (LEGACY_TO_BE_REMOVED) <input type="text" name="numNights">
+								<br>
 								<input type="submit" value="RENT!">
 						</form>
 					{%endif%}
