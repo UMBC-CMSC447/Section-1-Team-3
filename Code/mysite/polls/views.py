@@ -6,6 +6,7 @@ from polls.models import property
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView, View
 # Create your views here.
+import json
 from django.http import HttpResponse
 
 def MyView(request):

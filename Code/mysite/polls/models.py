@@ -11,7 +11,7 @@ class property(models.Model):
     Rent = models.IntegerField(default = 0)
     Rating = models.IntegerField(default = 0)
     Approval = models.IntegerField(default = 0)
-    #RentSlots = models.TextField(null = True)
+    RentSlots = models.TextField(null = True)
 
     def __str__(self):
         return self.Name
