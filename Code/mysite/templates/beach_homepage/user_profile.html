@@ -127,10 +127,27 @@
 						</section>
 					</div>
 					<p>Properties
-						{% for property in test %}
-						<span>{{test.Name}}</span>
-						<span>{{test.Owner}}</span>
-						{% endfor %}</p>
+						<section>
+						{% for property in list %}
+						<br>
+						<hr>
+						<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
+						<span>Price per Night: {{ property.Price }} </span>
+						<span>Location: {{ property.Location }} </span>
+						<span>Owner: {{ property.Owner }} </span>
+						<br>
+						<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
+						{% if property.Rent != 0 %}
+							<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
+						{%endif%}
+						{% if property.Rent == 0 %}
+							<img src="http://www.hsaforamerica.com/healthcare-debate-blog/wp-content/uploads/2013/03/h-38.gif" width=100px height=100px alt="Available">
+						{%endif%}
+						<span> {{ property.Description}} </span>
+						<br>
+						{% endfor %}
+						<br>
+						</section>
 				</div>
 
 			</div>

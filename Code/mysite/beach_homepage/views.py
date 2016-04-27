@@ -17,7 +17,7 @@ dict = {'Ocean City' : [38.336502, -75.084908], 'Park Place' : [36.863140,-76.01
 
 def index(request):
     #return HttpResponse("Hello, world. You're at the polls index.")
-
+    print("RANDOM IDEX")
     # Request the context of the request.
     # The context contains information such as the client's machine details, for example.
     context = RequestContext(request)
@@ -33,8 +33,21 @@ def index(request):
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     context_dict = {'boldmessage': "I am bold font from the context"}
-    test = property.objects.all()
     properties = property.objects.all()
+    test = []
+    print("I AM SENDING YOU TO ", newPath)
+    username = request.user
+    print(request.user)
+
+
+    for house in property.objects.all():
+        print("Looking at " + house.Owner + " and " + str(username))
+        if house.Owner == str(username):
+            test.append(house)
+            print("FOUND A HOUSE")
+
+    if(newPath == "beach_homepage/user_profile.html"):
+        return render_to_response(newPath,{'list':test},context)
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
@@ -68,6 +81,7 @@ def beach_index(request):
     return HttpResponseRedirect("/beach_homepage/index.html")
 
 def beach_redirect(request):
+    print("redirect!!")
     context = RequestContext(request)
     #to parse request object
     #https://code.djangoproject.com/wiki/HttpRsequest
@@ -223,6 +237,7 @@ def beach_userregister(request):
         )
 
 def userregister_success(request):
+        print("SUCESS")
         return render_to_response(
         '/beach_homepage/user_profile.html',
         )
