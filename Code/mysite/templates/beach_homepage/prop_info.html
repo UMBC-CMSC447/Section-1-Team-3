@@ -43,8 +43,8 @@
 						},
 						{
 							title: 'Long Event',
-							start: '2016-01-07',
-							end: '2016-01-10'
+							start: '2016/01/07',
+							end: '2016/01/12'
 						},
 						{
 							id: 999,
@@ -1437,15 +1437,17 @@
 					<br>
 					<hr>
 					<span>Name: {{ list.Name }}</span>
-					<span>Price per Night: {{ list.Price }} </span>
-					<span>Location: {{ list.Location }} </span>
-					<span>Owner:{{ list.Owner }} </span><br>
-					<span> {{ list.Description}} </span>
+
 					<br>
 					{% if user.is_superuser %}
 					<input type="submit" value="APPROVE!">
 					{%endif%}
 					<img src="{{list.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
+					<br>
+					<span>Price per Night: {{ list.Price }} </span>
+					<span>Location: {{ list.Location }} </span>
+					<span>Owner:{{ list.Owner }} </span><br>
+					<span> {{ list.Description}} </span> <br>
 					{% if list.Rent != 0 %}
 						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
 					{%endif%}
