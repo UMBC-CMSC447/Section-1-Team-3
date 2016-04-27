@@ -9,6 +9,8 @@ class property(models.Model):
     Image = models.ImageField(upload_to = '.', default = '/no-img.jpg')
     Description = models.CharField(max_length = 256)
     Rent = models.IntegerField(default = 0)
+    Rating = models.IntegerField(default = 0)
+    Approval = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.Name
