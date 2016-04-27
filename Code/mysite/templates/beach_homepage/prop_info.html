@@ -1480,7 +1480,18 @@
 
 					<br>
 					{% if user.is_superuser %}
-					<input type="submit" value="APPROVE!">
+						{% if  list.Approval  == 0 %}
+							<form method="post" name="rentForm" action="/beach_homepage/approve_prop/{{list.Name}}">
+								{% csrf_token %}
+									<input type="submit" value="APPROVE!">
+							</form>
+							{%endif%}
+							{% if list.Approval  > 0 %}
+								<form method="post" name="rentForm" action="/beach_homepage/unapprove_prop/{{list.Name}}">
+									{% csrf_token %}
+										<input type="submit" value="UN-APPROVE!">
+								</form>
+								{%endif%}
 					{%endif%}
 					<img src="{{list.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
 					<br>
