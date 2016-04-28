@@ -1500,7 +1500,7 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
-					
+
 					{% if list.Rent != 0 %}
 						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
 					{%endif%}
@@ -1509,10 +1509,9 @@
 						<form method="post" name="rentForm" action="/beach_homepage/rent_prop/{{list.Name}}">
 								{% csrf_token %}
 							 	<br>
+								<INPUT TYPE=HIDDEN NAME="user" value="{{user.username}}">
 								Start: <input type="date" name="start" > <br>
 								End: <input type="date" name="end" >
-								<br>
-								Number of Nights (LEGACY_TO_BE_REMOVED) <input type="text" name="numNights">
 								<br>
 								<input type="submit" value="RENT!">
 						</form>

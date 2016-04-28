@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.http import HttpResponse
 import re
+import json
 # Create your views here.
 
 dict = {'Ocean City' : [38.336502, -75.084908], 'Park Place' : [36.863140,-76.015778]}
@@ -128,21 +129,46 @@ def sort(request,data):
     return HttpResponseRedirect("/beach_homepage/index.html")
 @csrf_protect
 def beach_rentProperty(request, data):
+    jsonDec = json.decoder.JSONDecoder()
     context = RequestContext(request)
     properties = property.objects.all()
     foundProp = property.objects.all()
     newPath = request.path[1:]
     newPath = re.split('/',newPath)
     form = request.POST
+    myUser = form["user"]
+    myStart = form["start"]
+    myEnd = form["end"]
+    rentInfo =  str(myUser) + "," + str(myStart) + "," + str(myEnd)
+    print("INFO!!!")
+    print(myUser, " ", myStart, " ", myEnd)
+    print(rentInfo)
+    print("endINFO")
     print(form)
     print("Data")
     print(data)
+
     #print("The new path is:" + newPath)
     for house in property.objects.all():
         print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
-            foundProp.Rent = 1
+            foundProp.Rent = 0
+            myPythonList = []
+            myPythonList.append(rentInfo)
+            text = foundProp.RentSlots
+            print("THE TEXT OF TExT @$#$#")
+            print(text)
+            if(text):
+                print("NOT*EMPTY^^^^")
+                myPythonList = jsonDec.decode(foundProp.RentSlots)
+                myPythonList.append(rentInfo)
+            else:
+                print("EMPYT******")
+            print("FULL LIST!!!!!")
+            print(myPythonList)
+            print("end of list------------------")
+            foundProp.RentSlots = json.dumps(myPythonList)
             foundProp.save()
             print("FOUND")
     print("-----------RENTING----------")
