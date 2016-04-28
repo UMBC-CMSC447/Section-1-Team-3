@@ -19,6 +19,7 @@ dict = {'Ocean City' : [38.336502, -75.084908], 'Park Place' : [36.863140,-76.01
 def index(request):
     #return HttpResponse("Hello, world. You're at the polls index.")
     print("RANDOM IDEX")
+    jsonDec = json.decoder.JSONDecoder()
     # Request the context of the request.
     # The context contains information such as the client's machine details, for example.
     context = RequestContext(request)
@@ -41,14 +42,22 @@ def index(request):
     print(request.user)
 
 
-    for house in property.objects.all():
-        print("Looking at " + house.Owner + " and " + str(username))
+    for house in properties:
+        text = house.RentSlots
+        myPythonList = []
+        if(text):
+            myPythonList = jsonDec.decode(house.RentSlots)
+            print("+++++FOUND A THING+++++")
+        house.RentSlots = myPythonList
+        print("TENT SLOT")
+        print(house.RentSlots)
+        #print("Looking at " + house.Owner + " and " + str(username))
         if house.Owner == str(username):
             test.append(house)
-            print("FOUND A HOUSE")
+            #print("FOUND A HOUSE")
 
     if(newPath == "beach_homepage/user_profile.html"):
-        return render_to_response(newPath,{'list':test},context)
+        return render_to_response(newPath,{'list':properties},context)
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
@@ -195,7 +204,8 @@ def beach_rentProperty(request, data):
     print("---------------------")
     #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
-    return HttpResponseRedirect("/beach_homepage/property_search.html")
+    #return HttpResponseRedirect("/beach_homepage/property_search.html")
+    return HttpResponseRedirect(newPath)
 
 def beach_ApproveProperty(request, data):
     context = RequestContext(request)
@@ -215,7 +225,7 @@ def beach_ApproveProperty(request, data):
             foundProp.Approval = 1
             foundProp.save()
             print("FOUND")
-    print("-----------RENTING----------")
+    print("-----------APRROVING----------")
     print(request.path)
     print("beach_homepage/index.html")
     print(newPath)
@@ -224,7 +234,8 @@ def beach_ApproveProperty(request, data):
     print("---------------------")
     #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
-    return HttpResponseRedirect("/beach_homepage/property_search.html")
+    #return HttpResponseRedirect("/beach_homepage/property_search.html")
+    return HttpResponseRedirect(newPath)
 
 def beach_RateProperty(request, data):
     context = RequestContext(request)
@@ -251,16 +262,17 @@ def beach_RateProperty(request, data):
             foundProp.Rating = (foundProp.Rating + int(myRating)) /2
             foundProp.save()
             print("FOUND")
-    #print("-----------RENTING----------")
-    #print(request.path)
-    #print("beach_homepage/index.html")
-    #print(newPath)
-    #newPath = "/beach_homepage/prop_info/" + newPath[2]
-    #print("NOW NEW PATH IS!!! = " + newPath)
-    #print("---------------------")
-    #beach_redirect(newPath)
+    print("-----------RENTING----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "/beach_homepage/prop_info/" + newPath[2]
+    print("NOW NEW PATH IS!!! = " + newPath)
+    print("---------------------")
+    beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
-    return HttpResponseRedirect("/beach_homepage/property_search.html")
+    #return HttpResponseRedirect("/beach_homepage/property_search.html")
+    return HttpResponseRedirect(newPath)
 
 
 def beach_unApproveProperty(request, data):
@@ -290,9 +302,9 @@ def beach_unApproveProperty(request, data):
     print("---------------------")
     #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
-    return HttpResponseRedirect("/beach_homepage/property_search.html")
-
-
+    #return HttpResponseRedirect("/beach_homepage/property_search.html")
+    #return HttpResponseRedirect('/')
+    return HttpResponseRedirect(newPath)
 
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
@@ -339,7 +351,8 @@ def beach_propregister(request):
                 Description = form.cleaned_data['Description']
             )
             print("FORM WAS VALID AND REGISTERED")
-            return HttpResponseRedirect('property_search.html')
+            newPath = "/beach_homepage/prop_info/" + form.cleaned_data['Name']
+            return HttpResponseRedirect(newPath)
     else:
         form = PropRegistrationForm()
 

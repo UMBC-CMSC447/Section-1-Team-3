@@ -51,11 +51,15 @@
 				<div class="row">
 
 					<!-- Content -->
-					<div id="content" class="8u skel-cell-important">
+					<div id="content" class="container">
 						<section>
 							<header>
 								<h2>Create Property Form</h2>
 								<span class="byline">Form entry</span>
+								<section>
+									<section>
+									<div class="row">
+									<section>
 								    <form method="post" action="list_new_property.html" enctype = "multipart/form-data">{% csrf_token %}
 								        <table border="0">
 								            {{ form.as_table }}
@@ -63,6 +67,8 @@
 								        <input type="submit" value="Register" />
 								    </form>
 								    <a href="/accounts/login/">Login</a>
+									</section>
+									<section>
 										<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 										<script type="text/javascript">
 												window.onload = function () {
@@ -91,6 +97,9 @@
 										</script>
 										<div id="dvMap" style="width: 500px; height: 500px">
 										</div>
+									</div>
+								</section>
+									</section>
 							</header>
 						</section>
 					</div>
