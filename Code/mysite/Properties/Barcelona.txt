@@ -1,0 +1,105 @@
+Barcelonahouse00
+80000
+Barcelona
+ImageTest015.jpg
+This is example Barcelona house number 0 in Barcelona
+41.3904
+2.19254
+Barcelonahouse01
+70000
+Barcelona
+ImageTest012.jpg
+This is example Barcelona house number 1 in Barcelona
+41.3924
+2.19451
+Barcelonahouse02
+30000
+Barcelona
+ImageTest07.jpg
+This is example Barcelona house number 2 in Barcelona
+41.3888
+2.19094
+Barcelonahouse03
+40000
+Barcelona
+ImageTest06.jpg
+This is example Barcelona house number 3 in Barcelona
+41.3995
+2.20162
+Barcelonahouse04
+30000
+Barcelona
+ImageTest016.jpg
+This is example Barcelona house number 4 in Barcelona
+41.4016
+2.20366
+Barcelonahouse05
+80000
+Barcelona
+ImageTest09.jpg
+This is example Barcelona house number 5 in Barcelona
+41.392
+2.19405
+Barcelonahouse06
+30000
+Barcelona
+ImageTest03.jpg
+This is example Barcelona house number 6 in Barcelona
+41.3984
+2.20049
+Barcelonahouse07
+100000
+Barcelona
+ImageTest02.jpg
+This is example Barcelona house number 7 in Barcelona
+41.3922
+2.1943
+Barcelonahouse08
+100000
+Barcelona
+ImageTest07.jpg
+This is example Barcelona house number 8 in Barcelona
+41.3973
+2.19944
+Barcelonahouse09
+20000
+Barcelona
+ImageTest02.jpg
+This is example Barcelona house number 9 in Barcelona
+41.3847
+2.18675
+Barcelonahouse010
+20000
+Barcelona
+ImageTest019.jpg
+This is example Barcelona house number 10 in Barcelona
+41.3867
+2.18878
+Barcelonahouse011
+90000
+Barcelona
+ImageTest04.jpg
+This is example Barcelona house number 11 in Barcelona
+41.3979
+2.20001
+Barcelonahouse012
+40000
+Barcelona
+ImageTest06.jpg
+This is example Barcelona house number 12 in Barcelona
+41.3849
+2.18699
+Barcelonahouse013
+70000
+Barcelona
+ImageTest013.jpg
+This is example Barcelona house number 13 in Barcelona
+41.3877
+2.18985
+Barcelonahouse014
+70000
+Barcelona
+ImageTest01.jpg
+This is example Barcelona house number 14 in Barcelona
+41.3946
+2.19668
