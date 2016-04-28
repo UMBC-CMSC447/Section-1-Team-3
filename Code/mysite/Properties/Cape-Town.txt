@@ -1,0 +1,105 @@
+Cape-Townhouse00
+80000
+Cape-Town
+ImageTest015.jpg
+This is example Cape-Town house number 0 in Cape-Town
+-33.932
+18.4706
+Cape-Townhouse01
+70000
+Cape-Town
+ImageTest012.jpg
+This is example Cape-Town house number 1 in Cape-Town
+-33.9301
+18.4726
+Cape-Townhouse02
+30000
+Cape-Town
+ImageTest07.jpg
+This is example Cape-Town house number 2 in Cape-Town
+-33.9336
+18.469
+Cape-Townhouse03
+40000
+Cape-Town
+ImageTest06.jpg
+This is example Cape-Town house number 3 in Cape-Town
+-33.923
+18.4797
+Cape-Townhouse04
+30000
+Cape-Town
+ImageTest016.jpg
+This is example Cape-Town house number 4 in Cape-Town
+-33.9209
+18.4817
+Cape-Townhouse05
+80000
+Cape-Town
+ImageTest09.jpg
+This is example Cape-Town house number 5 in Cape-Town
+-33.9305
+18.4721
+Cape-Townhouse06
+30000
+Cape-Town
+ImageTest03.jpg
+This is example Cape-Town house number 6 in Cape-Town
+-33.9241
+18.4786
+Cape-Townhouse07
+100000
+Cape-Town
+ImageTest02.jpg
+This is example Cape-Town house number 7 in Cape-Town
+-33.9303
+18.4724
+Cape-Townhouse08
+100000
+Cape-Town
+ImageTest07.jpg
+This is example Cape-Town house number 8 in Cape-Town
+-33.9251
+18.4775
+Cape-Townhouse09
+20000
+Cape-Town
+ImageTest02.jpg
+This is example Cape-Town house number 9 in Cape-Town
+-33.9378
+18.4648
+Cape-Townhouse010
+20000
+Cape-Town
+ImageTest019.jpg
+This is example Cape-Town house number 10 in Cape-Town
+-33.9358
+18.4669
+Cape-Townhouse011
+90000
+Cape-Town
+ImageTest04.jpg
+This is example Cape-Town house number 11 in Cape-Town
+-33.9246
+18.4781
+Cape-Townhouse012
+40000
+Cape-Town
+ImageTest06.jpg
+This is example Cape-Town house number 12 in Cape-Town
+-33.9376
+18.4651
+Cape-Townhouse013
+70000
+Cape-Town
+ImageTest013.jpg
+This is example Cape-Town house number 13 in Cape-Town
+-33.9347
+18.4679
+Cape-Townhouse014
+70000
+Cape-Town
+ImageTest01.jpg
+This is example Cape-Town house number 14 in Cape-Town
+-33.9279
+18.4748

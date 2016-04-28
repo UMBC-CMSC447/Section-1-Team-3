@@ -1,0 +1,147 @@
+Yokohamahouse00
+80000
+Yokohama
+ImageTest015.jpg
+This is example Yokohama house number 0 in Yokohama
+35.4227
+139.653
+Yokohamahouse01
+70000
+Yokohama
+ImageTest017.jpg
+This is example Yokohama house number 1 in Yokohama
+35.4247
+139.655
+Yokohamahouse02
+30000
+Yokohama
+ImageTest02.jpg
+This is example Yokohama house number 2 in Yokohama
+35.4212
+139.651
+Yokohamahouse03
+40000
+Yokohama
+ImageTest01.jpg
+This is example Yokohama house number 3 in Yokohama
+35.4318
+139.662
+Yokohamahouse04
+30000
+Yokohama
+ImageTest011.jpg
+This is example Yokohama house number 4 in Yokohama
+35.4339
+139.664
+Yokohamahouse05
+80000
+Yokohama
+ImageTest04.jpg
+This is example Yokohama house number 5 in Yokohama
+35.4243
+139.655
+Yokohamahouse06
+30000
+Yokohama
+ImageTest023.jpg
+This is example Yokohama house number 6 in Yokohama
+35.4307
+139.661
+Yokohamahouse07
+100000
+Yokohama
+ImageTest02.jpg
+This is example Yokohama house number 7 in Yokohama
+35.4245
+139.655
+Yokohamahouse08
+100000
+Yokohama
+ImageTest017.jpg
+This is example Yokohama house number 8 in Yokohama
+35.4296
+139.66
+Yokohamahouse09
+20000
+Yokohama
+ImageTest017.jpg
+This is example Yokohama house number 9 in Yokohama
+35.417
+139.647
+Yokohamahouse010
+20000
+Yokohama
+ImageTest019.jpg
+This is example Yokohama house number 10 in Yokohama
+35.419
+139.649
+Yokohamahouse011
+90000
+Yokohama
+ImageTest024.jpg
+This is example Yokohama house number 11 in Yokohama
+35.4302
+139.661
+Yokohamahouse012
+40000
+Yokohama
+ImageTest01.jpg
+This is example Yokohama house number 12 in Yokohama
+35.4172
+139.648
+Yokohamahouse013
+70000
+Yokohama
+ImageTest023.jpg
+This is example Yokohama house number 13 in Yokohama
+35.4201
+139.65
+Yokohamahouse014
+70000
+Yokohama
+ImageTest06.jpg
+This is example Yokohama house number 14 in Yokohama
+35.4269
+139.657
+Yokohamahouse015
+50000
+Yokohama
+ImageTest02.jpg
+This is example Yokohama house number 15 in Yokohama
+35.417
+139.647
+Yokohamahouse016
+70000
+Yokohama
+ImageTest04.jpg
+This is example Yokohama house number 16 in Yokohama
+35.4321
+139.662
+Yokohamahouse017
+50000
+Yokohama
+ImageTest020.jpg
+This is example Yokohama house number 17 in Yokohama
+35.42
+139.65
+Yokohamahouse018
+50000
+Yokohama
+ImageTest017.jpg
+This is example Yokohama house number 18 in Yokohama
+35.436
+139.666
+Yokohamahouse019
+40000
+Yokohama
+ImageTest00.jpg
+This is example Yokohama house number 19 in Yokohama
+35.4341
+139.664
+Yokohamahouse020
+70000
+Yokohama
+ImageTest03.jpg
+This is example Yokohama house number 20 in Yokohama
+35.425
+139.655

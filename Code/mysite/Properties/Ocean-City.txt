@@ -1,0 +1,161 @@
+Ocean-Cityhouse00
+80000
+Ocean-City
+ImageTest015.jpg
+This is example Ocean-City house number 0 in Ocean-City
+38.383
+-75.0689
+Ocean-Cityhouse01
+70000
+Ocean-City
+ImageTest017.jpg
+This is example Ocean-City house number 1 in Ocean-City
+38.385
+-75.0669
+Ocean-Cityhouse02
+30000
+Ocean-City
+ImageTest02.jpg
+This is example Ocean-City house number 2 in Ocean-City
+38.3814
+-75.0705
+Ocean-Cityhouse03
+40000
+Ocean-City
+ImageTest01.jpg
+This is example Ocean-City house number 3 in Ocean-City
+38.3921
+-75.0598
+Ocean-Cityhouse04
+30000
+Ocean-City
+ImageTest011.jpg
+This is example Ocean-City house number 4 in Ocean-City
+38.3942
+-75.0578
+Ocean-Cityhouse05
+80000
+Ocean-City
+ImageTest04.jpg
+This is example Ocean-City house number 5 in Ocean-City
+38.3846
+-75.0674
+Ocean-Cityhouse06
+30000
+Ocean-City
+ImageTest023.jpg
+This is example Ocean-City house number 6 in Ocean-City
+38.391
+-75.0609
+Ocean-Cityhouse07
+100000
+Ocean-City
+ImageTest02.jpg
+This is example Ocean-City house number 7 in Ocean-City
+38.3848
+-75.0671
+Ocean-Cityhouse08
+100000
+Ocean-City
+ImageTest017.jpg
+This is example Ocean-City house number 8 in Ocean-City
+38.3899
+-75.062
+Ocean-Cityhouse09
+20000
+Ocean-City
+ImageTest017.jpg
+This is example Ocean-City house number 9 in Ocean-City
+38.3773
+-75.0747
+Ocean-Cityhouse010
+20000
+Ocean-City
+ImageTest019.jpg
+This is example Ocean-City house number 10 in Ocean-City
+38.3793
+-75.0727
+Ocean-Cityhouse011
+90000
+Ocean-City
+ImageTest024.jpg
+This is example Ocean-City house number 11 in Ocean-City
+38.3905
+-75.0614
+Ocean-Cityhouse012
+40000
+Ocean-City
+ImageTest01.jpg
+This is example Ocean-City house number 12 in Ocean-City
+38.3775
+-75.0744
+Ocean-Cityhouse013
+70000
+Ocean-City
+ImageTest023.jpg
+This is example Ocean-City house number 13 in Ocean-City
+38.3803
+-75.0716
+Ocean-Cityhouse014
+70000
+Ocean-City
+ImageTest06.jpg
+This is example Ocean-City house number 14 in Ocean-City
+38.3872
+-75.0648
+Ocean-Cityhouse015
+50000
+Ocean-City
+ImageTest02.jpg
+This is example Ocean-City house number 15 in Ocean-City
+38.3773
+-75.0747
+Ocean-Cityhouse016
+70000
+Ocean-City
+ImageTest04.jpg
+This is example Ocean-City house number 16 in Ocean-City
+38.3924
+-75.0596
+Ocean-Cityhouse017
+50000
+Ocean-City
+ImageTest020.jpg
+This is example Ocean-City house number 17 in Ocean-City
+38.3803
+-75.0716
+Ocean-Cityhouse018
+50000
+Ocean-City
+ImageTest017.jpg
+This is example Ocean-City house number 18 in Ocean-City
+38.3963
+-75.0556
+Ocean-Cityhouse019
+40000
+Ocean-City
+ImageTest00.jpg
+This is example Ocean-City house number 19 in Ocean-City
+38.3944
+-75.0576
+Ocean-Cityhouse020
+70000
+Ocean-City
+ImageTest03.jpg
+This is example Ocean-City house number 20 in Ocean-City
+38.3853
+-75.0666
+Ocean-Cityhouse021
+40000
+Ocean-City
+ImageTest01.jpg
+This is example Ocean-City house number 21 in Ocean-City
+38.3903
+-75.0617
+Ocean-Cityhouse022
+30000
+Ocean-City
+ImageTest010.jpg
+This is example Ocean-City house number 22 in Ocean-City
+38.3938
+-75.0581

@@ -1,0 +1,175 @@
+Sydneyhouse00
+80000
+Sydney
+ImageTest015.jpg
+This is example Sydney house number 0 in Sydney
+-33.8916
+151.269
+Sydneyhouse01
+70000
+Sydney
+ImageTest017.jpg
+This is example Sydney house number 1 in Sydney
+-33.8896
+151.271
+Sydneyhouse02
+30000
+Sydney
+ImageTest02.jpg
+This is example Sydney house number 2 in Sydney
+-33.8932
+151.268
+Sydneyhouse03
+40000
+Sydney
+ImageTest01.jpg
+This is example Sydney house number 3 in Sydney
+-33.8825
+151.278
+Sydneyhouse04
+30000
+Sydney
+ImageTest011.jpg
+This is example Sydney house number 4 in Sydney
+-33.8805
+151.28
+Sydneyhouse05
+80000
+Sydney
+ImageTest04.jpg
+This is example Sydney house number 5 in Sydney
+-33.8901
+151.271
+Sydneyhouse06
+30000
+Sydney
+ImageTest023.jpg
+This is example Sydney house number 6 in Sydney
+-33.8836
+151.277
+Sydneyhouse07
+100000
+Sydney
+ImageTest02.jpg
+This is example Sydney house number 7 in Sydney
+-33.8898
+151.271
+Sydneyhouse08
+100000
+Sydney
+ImageTest017.jpg
+This is example Sydney house number 8 in Sydney
+-33.8847
+151.276
+Sydneyhouse09
+20000
+Sydney
+ImageTest017.jpg
+This is example Sydney house number 9 in Sydney
+-33.8974
+151.264
+Sydneyhouse010
+20000
+Sydney
+ImageTest019.jpg
+This is example Sydney house number 10 in Sydney
+-33.8953
+151.266
+Sydneyhouse011
+90000
+Sydney
+ImageTest024.jpg
+This is example Sydney house number 11 in Sydney
+-33.8841
+151.277
+Sydneyhouse012
+40000
+Sydney
+ImageTest01.jpg
+This is example Sydney house number 12 in Sydney
+-33.8971
+151.264
+Sydneyhouse013
+70000
+Sydney
+ImageTest023.jpg
+This is example Sydney house number 13 in Sydney
+-33.8943
+151.267
+Sydneyhouse014
+70000
+Sydney
+ImageTest06.jpg
+This is example Sydney house number 14 in Sydney
+-33.8874
+151.273
+Sydneyhouse015
+50000
+Sydney
+ImageTest02.jpg
+This is example Sydney house number 15 in Sydney
+-33.8973
+151.264
+Sydneyhouse016
+70000
+Sydney
+ImageTest04.jpg
+This is example Sydney house number 16 in Sydney
+-33.8822
+151.279
+Sydneyhouse017
+50000
+Sydney
+ImageTest020.jpg
+This is example Sydney house number 17 in Sydney
+-33.8943
+151.267
+Sydneyhouse018
+50000
+Sydney
+ImageTest017.jpg
+This is example Sydney house number 18 in Sydney
+-33.8783
+151.283
+Sydneyhouse019
+40000
+Sydney
+ImageTest00.jpg
+This is example Sydney house number 19 in Sydney
+-33.8802
+151.281
+Sydneyhouse020
+70000
+Sydney
+ImageTest03.jpg
+This is example Sydney house number 20 in Sydney
+-33.8893
+151.272
+Sydneyhouse021
+40000
+Sydney
+ImageTest01.jpg
+This is example Sydney house number 21 in Sydney
+-33.8843
+151.277
+Sydneyhouse022
+30000
+Sydney
+ImageTest010.jpg
+This is example Sydney house number 22 in Sydney
+-33.8808
+151.28
+Sydneyhouse023
+100000
+Sydney
+ImageTest012.jpg
+This is example Sydney house number 23 in Sydney
+-33.879
+151.282
+Sydneyhouse024
+50000
+Sydney
+ImageTest014.jpg
+This is example Sydney house number 24 in Sydney
+-33.8795
+151.281

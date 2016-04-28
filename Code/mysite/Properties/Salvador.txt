@@ -1,0 +1,105 @@
+Salvadorhouse00
+80000
+Salvador
+ImageTest015.jpg
+This is example Salvador house number 0 in Salvador
+-12.971
+-38.5097
+Salvadorhouse01
+70000
+Salvador
+ImageTest012.jpg
+This is example Salvador house number 1 in Salvador
+-12.969
+-38.5077
+Salvadorhouse02
+30000
+Salvador
+ImageTest07.jpg
+This is example Salvador house number 2 in Salvador
+-12.9726
+-38.5113
+Salvadorhouse03
+40000
+Salvador
+ImageTest06.jpg
+This is example Salvador house number 3 in Salvador
+-12.9619
+-38.5006
+Salvadorhouse04
+30000
+Salvador
+ImageTest016.jpg
+This is example Salvador house number 4 in Salvador
+-12.9599
+-38.4985
+Salvadorhouse05
+80000
+Salvador
+ImageTest09.jpg
+This is example Salvador house number 5 in Salvador
+-12.9695
+-38.5081
+Salvadorhouse06
+30000
+Salvador
+ImageTest03.jpg
+This is example Salvador house number 6 in Salvador
+-12.9631
+-38.5017
+Salvadorhouse07
+100000
+Salvador
+ImageTest02.jpg
+This is example Salvador house number 7 in Salvador
+-12.9692
+-38.5079
+Salvadorhouse08
+100000
+Salvador
+ImageTest07.jpg
+This is example Salvador house number 8 in Salvador
+-12.9641
+-38.5028
+Salvadorhouse09
+20000
+Salvador
+ImageTest02.jpg
+This is example Salvador house number 9 in Salvador
+-12.9768
+-38.5154
+Salvadorhouse010
+20000
+Salvador
+ImageTest019.jpg
+This is example Salvador house number 10 in Salvador
+-12.9748
+-38.5134
+Salvadorhouse011
+90000
+Salvador
+ImageTest04.jpg
+This is example Salvador house number 11 in Salvador
+-12.9635
+-38.5022
+Salvadorhouse012
+40000
+Salvador
+ImageTest06.jpg
+This is example Salvador house number 12 in Salvador
+-12.9766
+-38.5152
+Salvadorhouse013
+70000
+Salvador
+ImageTest013.jpg
+This is example Salvador house number 13 in Salvador
+-12.9737
+-38.5123
+Salvadorhouse014
+70000
+Salvador
+ImageTest01.jpg
+This is example Salvador house number 14 in Salvador
+-12.9669
+-38.5055
