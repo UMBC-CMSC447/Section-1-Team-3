@@ -1406,10 +1406,13 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Homepage</a></li>
-						<li><a href="user_profile.html">User Profile</a></li>
-						<li><a href="list_new_property.html">List a Property</a></li>
-						<li  class="active"><a href="property_search.html">Search Properties</a></li>
+						<li><a href="/beach_homepage/index.html">Homepage</a></li>
+						<li><a href="/beach_homepage/user_profile.html">User Profile</a></li>
+						<li><a href="/beach_homepage/list_new_property.html">List a Property</a></li>
+						<li  class="active"><a href="/beach_homepage/property_search.html">Search Properties</a></li>
+						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
+						<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+
 					</ul>
 				</nav>
 			</div>
@@ -1453,17 +1456,6 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
-
-					{% for slot in list.RentSlots %}
-					<p>
-						{
-							title: "{{slot.0}}",
-							start: "{{slot.1}}",
-							end: "{{slot.2}}"
-						},
-					</p>
-					{% endfor %}
-
 					{% if list.Rent != 0 %}
 						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
 					{%endif%}

@@ -110,7 +110,10 @@ def beach_prop_info(request, data):
         print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
-            myPythonList = jsonDec.decode(foundProp.RentSlots)
+            text = foundProp.RentSlots
+            myPythonList = []
+            if(text):
+                myPythonList = jsonDec.decode(foundProp.RentSlots)
             listToSend = []
             for slot in myPythonList:
                 slot = re.split(',',slot)
