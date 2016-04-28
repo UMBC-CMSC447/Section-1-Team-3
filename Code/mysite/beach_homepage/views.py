@@ -99,6 +99,7 @@ def beach_redirect(request):
     return HttpResponseRedirect(newPath)
 
 def beach_prop_info(request, data):
+    jsonDec = json.decoder.JSONDecoder()
     context = RequestContext(request)
     properties = property.objects.all()
     foundProp = property.objects.all()
@@ -109,6 +110,17 @@ def beach_prop_info(request, data):
         print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
+            myPythonList = jsonDec.decode(foundProp.RentSlots)
+            listToSend = []
+            for slot in myPythonList:
+                slot = re.split(',',slot)
+                listToSend.append(slot)
+                print(slot)
+            print("*****LIST OF RENTS TO SEND********")
+            print(listToSend)
+            foundProp.RentSlots = listToSend
+            print("TEST098098")
+            print(foundProp.RentSlots)
             if house.Location in dict:
                 place_lat = dict[house.Location][0]
                 place_long = dict[house.Location][1]
