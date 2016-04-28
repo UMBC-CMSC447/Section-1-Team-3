@@ -269,7 +269,7 @@ def beach_RateProperty(request, data):
     newPath = "/beach_homepage/prop_info/" + newPath[2]
     print("NOW NEW PATH IS!!! = " + newPath)
     print("---------------------")
-    beach_redirect(newPath)
+    #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
     #return HttpResponseRedirect("/beach_homepage/property_search.html")
     return HttpResponseRedirect(newPath)

@@ -1463,6 +1463,37 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
+					{% for slot in list.RentSlots %}
+
+
+						{% if user.username == slot.0 %}
+
+									<form method="post" id="rating" name="rateForm" action="/beach_homepage/rate_prop/{{list.Name}}">
+										{% csrf_token %}
+									Rate This Property!
+									<span class="starRating">
+										<input id="rating5" type="radio" name="rating" value="5">
+										<label for="rating5">5</label>
+										<input id="rating4" type="radio" name="rating" value="4">
+										<label for="rating4">4</label>
+										<input id="rating3" type="radio" name="rating"  value="3">
+										<label for="rating3">3</label>
+										<input id="rating2" type="radio" name="rating" value="2">
+										<label for="rating2">2</label>
+										<input id="rating1" type="radio" name="rating" value="1">
+										<label for="rating1">1</label>
+									</span>
+										<input type="submit" value="Review!">
+									</form>
+							{% endif %}
+						{% endfor %}
+
+						</span>
+						<br>
+						<span> {{ property.Description}} </span>
+						<br>
+
+					<br>
 
 								<form method="post" name="rentForm" action="/beach_homepage/rent_prop/{{list.Name}}">
 								{% csrf_token %}
