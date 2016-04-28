@@ -193,21 +193,16 @@ def beach_RateProperty(request, data):
     newPath = re.split('/',newPath)
     form = request.POST
     myRating = form["rating"]
-    '''
-    for key, value in form.iteritems():
-        print("!Looking at! ", key," and! ", value)
-        print(value)
-        if(int(value) > 0 and int(value) < 6):
-            myRating = value
-    '''
     print(form)
     print("Data")
     print(data)
     print("!!RATING = ", myRating)
     print(myRating)
+    print("!!RATINGPATH!!!")
+    print(newPath)
     #print("The new path is:" + newPath)
     for house in property.objects.all():
-        print("Looking at " + house.Name + " and " + newPath[2])
+        #print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
             if(foundProp.Rating == 0):
@@ -215,13 +210,13 @@ def beach_RateProperty(request, data):
             foundProp.Rating = (foundProp.Rating + int(myRating)) /2
             foundProp.save()
             print("FOUND")
-    print("-----------RENTING----------")
-    print(request.path)
-    print("beach_homepage/index.html")
-    print(newPath)
-    newPath = "/beach_homepage/prop_info/" + newPath[2]
-    print("NOW NEW PATH IS!!! = " + newPath)
-    print("---------------------")
+    #print("-----------RENTING----------")
+    #print(request.path)
+    #print("beach_homepage/index.html")
+    #print(newPath)
+    #newPath = "/beach_homepage/prop_info/" + newPath[2]
+    #print("NOW NEW PATH IS!!! = " + newPath)
+    #print("---------------------")
     #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
     return HttpResponseRedirect("/beach_homepage/property_search.html")
