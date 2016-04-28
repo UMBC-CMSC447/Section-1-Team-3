@@ -12,6 +12,7 @@ from beach_homepage.views import beach_redirect
 from beach_homepage.views import beach_rentProperty
 from beach_homepage.views import beach_ApproveProperty
 from beach_homepage.views import beach_unApproveProperty
+from beach_homepage.views import beach_RateProperty
 from login.views import *
 from upload.views import *
 from regProperty.views import *
@@ -46,6 +47,7 @@ urlpatterns = patterns('',
     url(r'^beach_homepage/rent_prop/(.*)',beach_rentProperty),
     url(r'^beach_homepage/approve_prop/(.*)',beach_ApproveProperty),
     url(r'^beach_homepage/unapprove_prop/(.*)',beach_unApproveProperty),
+    url(r'^beach_homepage/rate_prop/(.*)',beach_RateProperty),
     url(r'^search/prop_info/(.*)',beach_prop_info),
     url(r'^sort/(.*)',sort),
     url(r'^search/(.*)',search),
