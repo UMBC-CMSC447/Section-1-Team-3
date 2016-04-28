@@ -12,6 +12,8 @@ class property(models.Model):
     Rating = models.IntegerField(default = 0)
     Approval = models.IntegerField(default = 0)
     RentSlots = models.TextField(null = True)
+    Lat = models.FloatField(default = 38.388656, null = True)
+    Long = models.FloatField(default = -75.063863, null = True)
 
     def __str__(self):
         return self.Name
