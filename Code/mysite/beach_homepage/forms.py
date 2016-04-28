@@ -10,6 +10,8 @@ class PropRegistrationForm(forms.Form):
     Name = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Property Name"))
     Price = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Price"))
     Location = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Location"))
+    Lat = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30, value = 38.388656)), label=_("Latitude"))
+    Long= forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30, value = -75.063863)), label=_("Longitude"))
     Owner = forms.CharField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Owner"))
     Description = forms.CharField(widget=forms.TextInput(attrs=dict(max_length=256)), label=_("Description"))
     Image = forms.ImageField()

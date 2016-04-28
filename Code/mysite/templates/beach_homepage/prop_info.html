@@ -54,7 +54,7 @@
 		src="http://maps.googleapis.com/maps/api/js">
 		</script>
 		<script>
-		var myCenter=new google.maps.LatLng(38.3365033,-75.0849058);
+		var myCenter=new google.maps.LatLng("{{list.Lat}}","{{list.Long}}");
 
 		function initialize()
 		{
@@ -66,10 +66,11 @@
 
 		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-		var marker=new google.maps.Marker({
-		  position:myCenter,
-		  icon:'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Ball-Pink-icon.png'
-		  });
+		var marker = new google.maps.Marker({
+			position:myCenter,
+			map: map,
+			title: 'Hello World!'
+		});
 
 		marker.setMap(map);
 		}

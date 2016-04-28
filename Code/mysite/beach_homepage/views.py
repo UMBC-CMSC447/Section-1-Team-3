@@ -332,6 +332,8 @@ def beach_propregister(request):
                 Name=form.cleaned_data['Name'],
                 Price=form.cleaned_data['Price'],
                 Location=form.cleaned_data['Location'],
+                Lat=form.cleaned_data['Lat'],
+                Long=form.cleaned_data['Long'],
                 Image=form.cleaned_data['Image'],
                 Owner=form.cleaned_data['Owner'],
                 Description = form.cleaned_data['Description']

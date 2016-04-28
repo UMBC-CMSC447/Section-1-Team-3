@@ -38,7 +38,7 @@
 						<li><a href="property_search.html">Search Properties</a></li>
 						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
 								<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
-	
+
 					</ul>
 				</nav>
 			</div>
@@ -63,6 +63,34 @@
 								        <input type="submit" value="Register" />
 								    </form>
 								    <a href="/accounts/login/">Login</a>
+										<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+										<script type="text/javascript">
+												window.onload = function () {
+														document.getElementById("id_Owner").value = "{{user.username}}";
+														var mapOptions = {
+																center: new google.maps.LatLng(18.9300, 72.8200),
+																zoom: 14,
+																mapTypeId: google.maps.MapTypeId.ROADMAP
+														};
+														var infoWindow = new google.maps.InfoWindow();
+														var latlngbounds = new google.maps.LatLngBounds();
+														var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+														google.maps.event.addListener(map, 'click', function (e) {
+																//alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+																document.getElementById("id_Lat").value = e.latLng.lat();
+																document.getElementById("id_Long").value = e.latLng.lng();
+																var myCenter=new google.maps.LatLng(e.latLng.lat(),e.latLng.lng());
+																var marker = new google.maps.Marker({
+															    position:myCenter,
+															    map: map,
+															    title: 'Hello World!'
+															  });
+
+														});
+												}
+										</script>
+										<div id="dvMap" style="width: 500px; height: 500px">
+										</div>
 							</header>
 						</section>
 					</div>
