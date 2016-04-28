@@ -55,6 +55,11 @@ NEW INSTRUCTIONS:
 
 	The virtual enviroment installs python in a local directory. This way we can keep all of the extra packages (django, mangoDB, South) we need in a single directory. At the end we can zip the directory and upload it to our repo as a deployable product.
 
+3c. Install libraries (linux only)
+
+	# apt-get build-dep python-imaging
+	# apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
+
 4. Activate your virtual enviroment
 
 windows:
