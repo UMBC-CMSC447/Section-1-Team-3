@@ -1480,7 +1480,18 @@
 
 					<br>
 					{% if user.is_superuser %}
-					<input type="submit" value="APPROVE!">
+						{% if  list.Approval  == 0 %}
+							<form method="post" name="approveForm" action="/beach_homepage/approve_prop/{{list.Name}}">
+								{% csrf_token %}
+									<input type="submit" value="APPROVE!">
+							</form>
+							{%endif%}
+							{% if list.Approval  > 0 %}
+								<form method="post" name="unapproveForm" action="/beach_homepage/unapprove_prop/{{list.Name}}">
+									{% csrf_token %}
+										<input type="submit" value="UN-APPROVE!">
+								</form>
+								{%endif%}
 					{%endif%}
 					<img src="{{list.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
 					<br>
@@ -1489,21 +1500,7 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
-					<p>
-						Rating:
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" onclick="this.checked = false;" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" onclick="this.checked = false;" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" onclick="this.checked = true;" value="3" checked>
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" onclick="this.checked = false;" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" onclick="this.checked = false;" value="1">
-							<label for="rating1">1</label>
-						</span>
-					</p>
+					
 					{% if list.Rent != 0 %}
 						<img src="http://alisoncanavan.com/wp-content/uploads/2014/10/fully-booked.gif" width=100px height=100px alt="Booked">
 					{%endif%}

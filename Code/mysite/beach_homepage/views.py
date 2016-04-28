@@ -149,10 +149,109 @@ def beach_rentProperty(request, data):
     print(request.path)
     print("beach_homepage/index.html")
     print(newPath)
-    newPath = "beach_homepage/index.html"
+    newPath = "/beach_homepage/prop_info/" + newPath[2]
+    print("NOW NEW PATH IS!!! = " + newPath)
     print("---------------------")
-    beach_redirect(request)
-    return render_to_response(newPath,{'list':foundProp},context)
+    #beach_redirect(newPath)
+    #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
+    return HttpResponseRedirect("/beach_homepage/property_search.html")
+
+def beach_ApproveProperty(request, data):
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    form = request.POST
+    print(form)
+    print("Data")
+    print(data)
+    #print("The new path is:" + newPath)
+    for house in property.objects.all():
+        print("Looking at " + house.Name + " and " + newPath[2])
+        if house.Name == newPath[2]:
+            foundProp = house
+            foundProp.Approval = 1
+            foundProp.save()
+            print("FOUND")
+    print("-----------RENTING----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "/beach_homepage/prop_info/" + newPath[2]
+    print("NOW NEW PATH IS!!! = " + newPath)
+    print("---------------------")
+    #beach_redirect(newPath)
+    #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
+    return HttpResponseRedirect("/beach_homepage/property_search.html")
+
+def beach_RateProperty(request, data):
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    form = request.POST
+    myRating = form["rating"]
+    print(form)
+    print("Data")
+    print(data)
+    print("!!RATING = ", myRating)
+    print(myRating)
+    print("!!RATINGPATH!!!")
+    print(newPath)
+    #print("The new path is:" + newPath)
+    for house in property.objects.all():
+        #print("Looking at " + house.Name + " and " + newPath[2])
+        if house.Name == newPath[2]:
+            foundProp = house
+            if(foundProp.Rating == 0):
+                foundProp.Rating = int(myRating)
+            foundProp.Rating = (foundProp.Rating + int(myRating)) /2
+            foundProp.save()
+            print("FOUND")
+    #print("-----------RENTING----------")
+    #print(request.path)
+    #print("beach_homepage/index.html")
+    #print(newPath)
+    #newPath = "/beach_homepage/prop_info/" + newPath[2]
+    #print("NOW NEW PATH IS!!! = " + newPath)
+    #print("---------------------")
+    #beach_redirect(newPath)
+    #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
+    return HttpResponseRedirect("/beach_homepage/property_search.html")
+
+
+def beach_unApproveProperty(request, data):
+    context = RequestContext(request)
+    properties = property.objects.all()
+    foundProp = property.objects.all()
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    form = request.POST
+    print(form)
+    print("Data")
+    print(data)
+    #print("The new path is:" + newPath)
+    for house in property.objects.all():
+        print("Looking at " + house.Name + " and " + newPath[2])
+        if house.Name == newPath[2]:
+            foundProp = house
+            foundProp.Approval = 0
+            foundProp.save()
+            print("FOUND")
+    print("-----------RENTING----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "/beach_homepage/prop_info/" + newPath[2]
+    print("NOW NEW PATH IS!!! = " + newPath)
+    print("---------------------")
+    #beach_redirect(newPath)
+    #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
+    return HttpResponseRedirect("/beach_homepage/property_search.html")
+
+
 
 #full tutorial
 #http://www.djangobook.com/en/2.0/chapter07.html
