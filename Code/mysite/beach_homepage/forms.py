@@ -3,6 +3,7 @@ import re
 from django import forms
 from polls.models import property
 from django.contrib.auth.models import User
+from polls.models import UserAvatar
 from django.utils.translation import ugettext_lazy as _
 
 class PropRegistrationForm(forms.Form):
@@ -33,6 +34,7 @@ class RegistrationForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Email address"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password (again)"))
+    avatar = forms.ImageField(required = False)
 
     def clean_username(self):
         try:

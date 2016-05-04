@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class property(models.Model):
@@ -17,5 +18,12 @@ class property(models.Model):
 
     def __str__(self):
         return self.Name
+class UserAvatar(models.Model):
+    username = models.CharField(max_length = 50)
+    avatar = models.ImageField(upload_to = '.', default = '/no-img.jpg')
+
+
+    def __str__(self):
+        return self.username
     #def create(cls,Name,Price,Location,Owner):
     #    prop = cls(Name = Name

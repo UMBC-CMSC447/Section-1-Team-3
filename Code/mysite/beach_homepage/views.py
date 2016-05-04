@@ -378,6 +378,10 @@ def beach_userregister(request):
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email']
                 )
+                useravatar = UserAvatar.objects.create(
+                username = form.cleaned_data['username'],
+                avatar = form.cleaned_data['avatar']
+                )
                 print("FORM WAS VALID AND REGISTERED")
                 return HttpResponseRedirect('user_profile.html')
         else:
