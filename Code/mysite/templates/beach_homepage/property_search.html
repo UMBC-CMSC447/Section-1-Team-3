@@ -65,7 +65,12 @@
 		$(function(){
 		  var currencies = [
 				{% for property in list %}
-				{ value: '{{property.Name}}', data: '{{property.Name}}' },
+					{% if property.Approval > 0  %}
+						{ value: '{{property.Name}}', data: '{{property.Name}}' },
+					{%endif%}
+					{% if user.is_superuser and property.Approval == 0  %}
+					{ value: '{{property.Name}}', data: '{{property.Name}}' },
+				{%endif%}
 				{% endfor %}
 		  ];
 
@@ -150,8 +155,56 @@
 						-->
 					</section>
 					<section>
+
+						{% if user.is_superuser  %}
+						<details>
+							<summary>Not Apprved Properties</summary>
+												{% for property in list %}
+														{% if property.Approval == 0  %}
+															<br>
+															<hr>
+															<div style="background-color: red; width: 100&#37;; text-align: center; color: white;">NOT APPROVED</div>
+															<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
+															<span>Price per Night: {{ property.Price }} </span>
+															<span>Location: {{ property.Location }} </span>
+															<span>Owner: {{ property.Owner }} </span>
+															<br>
+															<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
+															<br>
+															<span>Rating: {{ property.Rating }} </span>
+															<br>
+																				<span> {{ property.Description}} </span>
+															<br>
+														{%endif%}
+												{% endfor %}
+
+							</details>
+							<details>
+							<summary>Apprved Properties</summary>
+												{% for property in list %}
+														{% if property.Approval > 0  %}
+															<br>
+															<hr>
+															<div style="background-color: green; width: 100&#37;; text-align: center; color: white;">APPROVED</div>
+															<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
+															<span>Price per Night: {{ property.Price }} </span>
+															<span>Location: {{ property.Location }} </span>
+															<span>Owner: {{ property.Owner }} </span>
+															<br>
+															<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
+															<br>
+															<span>Rating: {{ property.Rating }} </span>
+															<br>
+																				<span> {{ property.Description}} </span>
+															<br>
+														{%endif%}
+												{% endfor %}
+
+							</details>
+					{%endif%}
 					{% for property in list %}
-					{% if user.is_superuser or property.Approval > 0  %}
+
+					{% if not user.is_superuser and property.Approval > 0  %}
 						<br>
 						<hr>
 						<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
