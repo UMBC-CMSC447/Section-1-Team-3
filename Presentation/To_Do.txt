@@ -1,0 +1,9 @@
+login | signup change to avatar | username | logout when signed up
+
+create user redirects to user sign in page
+
+save user first name last name to database
+
+add escape key space into property names
+
+disallow property creation when not logged in
