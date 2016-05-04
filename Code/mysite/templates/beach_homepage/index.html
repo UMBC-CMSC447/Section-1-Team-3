@@ -38,15 +38,20 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index.html">Homepage</a></li>
+						<li><a href="index.html">Homepage</a></li>
 						<li><a href="user_profile.html">User Profile</a></li>
-						<li><a href="list_new_property.html">List a Property</a></li>
+						<li  class="active"><a href="list_new_property.html">List a Property</a></li>
 						<li><a href="property_search.html">Search Properties</a></li>
+						{% if not user.is_authenticated %}
 						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
-      					<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+							<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+						{%endif%}
+						{% if user.is_authenticated %}
+						<li>		<a href="/accounts/logout"> Logout</a> </li>
+						<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Create new User</a></li>
+						{%endif%}
 					</ul>
 				</nav>
-
 			</div>
 			<div class="container">
 

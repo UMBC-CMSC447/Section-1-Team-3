@@ -36,9 +36,14 @@
 						<li><a href="user_profile.html">User Profile</a></li>
 						<li  class="active"><a href="list_new_property.html">List a Property</a></li>
 						<li><a href="property_search.html">Search Properties</a></li>
+						{% if not user.is_authenticated %}
 						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
-								<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
-
+							<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+						{%endif%}
+						{% if user.is_authenticated %}
+						<li>		<a href="/accounts/logout"> Logout</a> </li>
+						<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Create new User</a></li>
+						{%endif%}
 					</ul>
 				</nav>
 			</div>
@@ -51,6 +56,11 @@
 				<div class="row">
 
 					<!-- Content -->
+					{% if not user.is_authenticated %}
+					<h2>Please create a user and or login to be able to list a property</h2>
+					{%endif%}
+					<br>
+					{% if user.is_authenticated %}
 					<div id="content" class="container">
 						<section>
 							<header>
@@ -66,7 +76,9 @@
 								        </table>
 								        <input type="submit" value="Register" />
 								    </form>
+										{% if not user.is_authenticated %}
 								    <a href="/accounts/login/">Login</a>
+										{%endif%}
 									</section>
 									<section>
 										<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -83,6 +95,7 @@
 														var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
 														google.maps.event.addListener(map, 'click', function (e) {
 																//alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+
 																document.getElementById("id_Lat").value = e.latLng.lat();
 																document.getElementById("id_Long").value = e.latLng.lng();
 																var myCenter=new google.maps.LatLng(e.latLng.lat(),e.latLng.lng());
@@ -103,7 +116,9 @@
 							</header>
 						</section>
 					</div>
+						{%endif%}
 				</div>
+
 			</div>
 		</div>
 	<!-- /Main -->

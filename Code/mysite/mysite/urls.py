@@ -24,12 +24,14 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^polls/', include('polls.urls')),
+
     url(r'^admin/', include(admin.site.urls)),
 #    url(r'^logout/$', logout_page),
     url(r'^upload/',ProfileImageView.as_view(), name = 'profile_image_upload'),
     url(r'^uploaded/(?P<pk>\d+)/$', ProfileDetailView.as_view(),
         name='profile_image'),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'), # If user is not login it will redirect to login page
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout',{'next_page': '/accounts/login'}),
     url(r'^register/$', register),
     url(r'^register/success/$', register_success),
     url(r'^propregister/$', propregister),

@@ -74,12 +74,17 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Homepage</a></li>
-						<li  class="active"><a href="user_profile.html">User Profile</a></li>
-						<li><a href="list_new_property.html">List a Property</a></li>
+						<li><a href="user_profile.html">User Profile</a></li>
+						<li  class="active"><a href="list_new_property.html">List a Property</a></li>
 						<li><a href="property_search.html">Search Properties</a></li>
+						{% if not user.is_authenticated %}
 						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
-								<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
-
+							<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+						{%endif%}
+						{% if user.is_authenticated %}
+						<li>		<a href="/accounts/logout"> Logout</a> </li>
+						<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Create new User</a></li>
+						{%endif%}
 					</ul>
 				</nav>
 			</div>
@@ -101,79 +106,38 @@
 				<div class="row">
 
 					<!-- Sidebar -->
-					<div id="sidebar" class="4u">
+
 						<section>
 							<form action="create_user.html">
 										<input type="submit" value="Create User">
 							</form>
 							<br>
-							<form action="/accounts/login/">
-										<input type="submit" value="Login">
-							</form>
+							{% if user.is_authenticated %}
+								<form action="/accounts/login/">
+											<input type="submit" value="Switch User">
+								</form>
+							{%endif%}
+							{% if not user.is_authenticated %}
+								<form action="/accounts/login/">
+											<input type="submit" value="Login">
+								</form>
+							{%endif%}
 							<br>
 							<header>
-								<h2>Avatar</h2>
-
-							</header>
-							<span class="pennant"><span class="fa fa-user"></span></span>
-	<!--						<div class="row">
-								<section class="6u">
-									<ul class="default">
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-										<li><a href="#">Option 4</a></li>
-										<li><a href="#">Option 5</a></li>
-									</ul>
-								</section>
-								<section class="6u">
-									<ul class="default">
-										<li><a href="#">If we need more options/links add below..</a></li>
-										<li><a href="#">Placeholder</a></li>
-										<li><a href="#">Placeholder</a></li>
-										<li><a href="#">Placeholder</a></li>
-										<li><a href="#">Placeholder</a></li>
-									</ul>
-								</section>
-							</div>
-			-->
-			<!--			</section>
-						<section>
-							<header>
-								<h2>Maybe have my properties/appointments here?</h2>
-							</header>
-							<ul class="style">
-								<li>
-									<p class="posted">Upcoming vacation or upcoming rental?</p>
-									<p><a href="#">Name of listing</a></p>
-								</li>
-							</ul>
-						</section>-->
-					</div>
-
-					<!-- Content -->
-					<div id="content" class="8u skel-cell-important">
-						<section>
-
-							<header>
+								{% if user.is_authenticated %}
 								<h2>Welcome {{user.username}}</h2>
-								<span class="byline">
-									User Name:<br>
-  								<input type="text" value = "{{user.username}}" name="UserName"> <br>
-									Password: <br>
-									<input type="password" value = "{{user.password}}" name="Password">
-								</span>
+								{%endif%}
+								{% if not user.is_authenticated %}
+								<p>Please create a user and or login to have increased functionality on this page</p>
+								{%endif%}
+								<br>
+					{% if user.is_authenticated %}
+								<h2>Avatar Placeholder</h2>
+
 							</header>
-							<p>Public Info</p>
-							<textarea rows="4" cols="50">
-								{{user.publicInfo}}
-							</textarea>
-
-						</section>
-					</div>
-
-					<h2>Properties Owned</h2>
+					<br>
 						<section>
+							<h2>Properties Owned</h2>
 						{% for property in list %}
 							{% if property.Owner == user.username %}
 								<br>
@@ -182,6 +146,12 @@
 								<span>Price per Night: {{ property.Price }} </span>
 								<span>Location: {{ property.Location }} </span>
 								<span>Owner: {{ property.Owner }} </span>
+								{% if property.Approval  == 0 %}
+								<span><p><font color="red">Not Approved</font></p></span>
+								{%endif%}
+								{% if property.Approval  != 0 %}
+								<span><p><font color="blue">Approved!</font></p></span>
+								{%endif%}
 								<br>
 								<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
 
@@ -197,9 +167,10 @@
 						<br>
 						</section>
 
-					<h2>Properties Rented</h2>
+
 
 						<section>
+							<h2>Properties Rented</h2>
 						{% for property in list %}
 							{% for slot in property.RentSlots %}
 
@@ -221,6 +192,8 @@
 						{% endfor %}
 						<br>
 						</section>
+
+							{%endif%}
 				</div>
 
 			</div>

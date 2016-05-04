@@ -18,11 +18,71 @@
 		<script src="{% static "beach_homepage/js/skel.min.js" %}"></script>
 		<script src="{% static "beach_homepage/js/skel-panels.min.js" %}"></script>
 		<script src="{% static "beach_homepage/js/init.js" %}"></script>
+		<script src="{% static "beach_homepage/js/jquery.autocomplete.min.js" %}"></script>
 		<noscript>
 			<link rel="stylesheet" href= "{% static "static/beach_homepage/css/skel-noscript.css" %}" />
 			<link rel="stylesheet" href=  "{% static "static/beach_homepage/css/style.css" %}"/>
 			<link rel="stylesheet" href= "{% static "static/beach_homepage/css/style-desktop.css" %}"/>
 		</noscript>
+		<style>
+		.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; position: relative;  left: 621px;  top: 445px;}
+		.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+		.autocomplete-selected { background: #f0f0f0; }
+		.autocomplete-suggestions strong { font-weight: normal; color: #3399ff;  }
+		#searchfield { display: block; width: 100%; text-align: center; margin-bottom: 35px; }
+
+		#searchfield form {
+		  display: inline-block;
+		  background: #eeefed;
+		  padding: 0;
+		  margin: 0;
+		  padding: 5px;
+		  border-radius: 3px;
+		  margin: 5px 0 0 0;
+		}
+		#searchfield form .biginput {
+		  width: 600px;
+		  height: 40px;
+		  padding: 0 10px 0 10px;
+		  background-color: #fff;
+		  border: 1px solid #c8c8c8;
+		  border-radius: 3px;
+		  color: #aeaeae;
+		  font-weight:normal;
+		  font-size: 1.5em;
+		  -webkit-transition: all 0.2s linear;
+		  -moz-transition: all 0.2s linear;
+		  transition: all 0.2s linear;
+		}
+		#searchfield form .biginput:focus {
+		  color: #858585;
+		}
+		</style>
+
+		<script>
+
+
+		$(function(){
+		  var currencies = [
+				{% for property in list %}
+				{ value: '{{property.Name}}', data: '{{property.Name}}' },
+				{% endfor %}
+		  ];
+
+		  // setup autocomplete function pulling from currencies[] array
+		  $('#autocomplete').autocomplete({
+		    lookup: currencies,
+		    onSelect: function (suggestion) {
+		      var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
+		      $('#outputcontent').html(thehtml);
+		    }
+		  });
+
+
+		});
+
+		</script>
+
 	</head>
 	<body>
 
@@ -34,11 +94,16 @@
 					<ul>
 						<li><a href="index.html">Homepage</a></li>
 						<li><a href="user_profile.html">User Profile</a></li>
-						<li><a href="list_new_property.html">List a Property</a></li>
-						<li  class="active"><a href="property_search.html">Search Properties</a></li>
+						<li  class="active"><a href="list_new_property.html">List a Property</a></li>
+						<li><a href="property_search.html">Search Properties</a></li>
+						{% if not user.is_authenticated %}
 						<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i> Login</a></li>
-								<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
-
+							<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Sign Up</a></li>
+						{%endif%}
+						{% if user.is_authenticated %}
+						<li>		<a href="/accounts/logout"> Logout</a> </li>
+						<li><a href="create_user.html"><i class="fa fa-plus-square"></i> Create new User</a></li>
+						{%endif%}
 					</ul>
 				</nav>
 			</div>
@@ -53,14 +118,18 @@
 					<header>
 						<h2>Property Search</h2>
 					</header>
-					<p>Thinking of doing a table and the Google Map</p>
+
 					</section>
 					<section>
-						<form action="/search/" method="get">
-							<input type="text" name="q">
-							<input type="submit" value="Search">
-						</form>
-					
+
+						<div id="searchfield">
+							<form action="/search/" method="get">
+								<input type="text" name="currency" class="biginput" id="autocomplete"  style="float: left;">
+								<input type="submit" value="Search">
+							</form>
+
+						</div><!-- @end #searchfield -->
+
 					<!--
 						<form action="/sort/" method="get">
 								Filter by: <br>

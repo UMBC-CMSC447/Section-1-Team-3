@@ -313,8 +313,8 @@ def search(request,data):
     properties = property.objects.all()
     foundProp = property.objects.all()
     newPath = request.path[1:]
-    newPath = request.GET['q']
-    print("The new path is:" + request.GET['q'])
+    newPath = request.GET['currency']
+    print("The new path is:" + request.GET['currency'])
     for house in property.objects.all():
         print("Looking at " + house.Name + " and " + newPath)
         if house.Name == newPath:
@@ -325,9 +325,11 @@ def search(request,data):
     print("beach_homepage/index.html")
     print(newPath)
     print("---------------------")
-    if 'q' in request.GET:
+    if request.GET['currency'] == "":
+        return HttpResponseRedirect("/beach_homepage/property_search.html")
+    if 'currency' in request.GET:
         sendPath = "prop_info/" + newPath
-        message = 'You searched for: %r' % request.GET['q']
+        message = 'You searched for: %r' % request.GET['currency']
         return HttpResponseRedirect(sendPath)
     else:
         message = 'You submitted an empty form.'
@@ -394,7 +396,6 @@ def beach_userregister(request):
         'beach_homepage/create_user.html',
         variables,
         )
-
 def userregister_success(request):
         print("SUCESS")
         return render_to_response(
