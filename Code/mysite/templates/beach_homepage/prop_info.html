@@ -1468,10 +1468,7 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
-					{% for slot in list.RentSlots %}
-
-
-						{% if user.username == slot.0 %}
+					{% if user.username in list.RentSlots %}
 
 									<form method="post" id="rating" name="rateForm" action="/beach_homepage/rate_prop/{{list.Name}}">
 										{% csrf_token %}
@@ -1490,8 +1487,9 @@
 									</span>
 										<input type="submit" value="Review!">
 									</form>
-							{% endif %}
-						{% endfor %}
+
+						{% endif %}
+
 
 						</span>
 						<br>
@@ -1499,7 +1497,7 @@
 						<br>
 
 					<br>
-
+								<font color="red">{{message}}</font>
 								<form method="post" name="rentForm" action="/beach_homepage/rent_prop/{{list.Name}}">
 								{% csrf_token %}
 							 	<br>

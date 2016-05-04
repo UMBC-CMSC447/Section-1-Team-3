@@ -8,7 +8,7 @@ disallow property creation when not logged in {DONE}
 
 make rating display starts instead of number, or number AND stars
 
-make rating not allowed to rate more than once, or limit it to the amount of times property has been booked
+make rating not allowed to rate more than once, or limit it to the amount of times property has been booked 
 
 userpages have unique URL
 	Easy because of Matts solution to have a sepearte data object for users:

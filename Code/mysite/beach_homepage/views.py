@@ -11,11 +11,13 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.http import HttpResponse
+from datetime import datetime as dt
 import re
 import json
 # Create your views here.
 
 dict = {'Ocean City' : [38.336502, -75.084908], 'Park Place' : [36.863140,-76.015778]}
+
 
 def index(request):
     #return HttpResponse("Hello, world. You're at the polls index.")
@@ -154,7 +156,8 @@ def beach_prop_info(request, data):
     print("---------------------")
     print("CONTECXT")
     print(context)
-    return render_to_response(newPath,{'list':foundProp},context)
+    message = ""
+    return render_to_response(newPath,{'list':foundProp, 'message': message},context)
 
 
 
@@ -173,6 +176,11 @@ def beach_rentProperty(request, data):
     myStart = form["start"]
     myEnd = form["end"]
     rentInfo =  str(myUser) + "," + str(myStart) + "," + str(myEnd)
+    myStart  = re.split('-',myStart)
+    myStart = dt(int(myStart[0]),int(myStart[1]),int(myStart[2]))
+    myEnd  = re.split('-',myEnd)
+    myEnd = dt(int(myEnd[0]),int(myEnd[1]),int(myEnd[2]))
+
     print("INFO!!!")
     print(myUser, " ", myStart, " ", myEnd)
     print(rentInfo)
@@ -181,7 +189,8 @@ def beach_rentProperty(request, data):
     print("Data")
     print(data)
 
-    #print("The new path is:" + newPath)
+    rentValid = True
+    #determine if rent is valid
     for house in property.objects.all():
         print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
@@ -190,27 +199,60 @@ def beach_rentProperty(request, data):
             myPythonList = []
             myPythonList.append(rentInfo)
             text = foundProp.RentSlots
-            print("THE TEXT OF TExT @$#$#")
-            print(text)
+            #check if any previous rents
             if(text):
-                print("NOT*EMPTY^^^^")
                 myPythonList = jsonDec.decode(foundProp.RentSlots)
+                print(myPythonList[0])
+                print("********WHAT I NEED**********")
+                for slot in myPythonList:
+                    slot = re.split(',',slot)
+                    #start is slot[1]
+                    tryStart  = re.split('-',str(slot[1]))
+                    tryStart = dt(int(tryStart[0]),int(tryStart[1]),int(tryStart[2]))
+                    #end is slot[2]
+                    tryEnd  = re.split('-',str(slot[2]))
+                    tryEnd = dt(int(tryEnd[0]),int(tryEnd[1]),int(tryEnd[2]))
+                    #if x is inbwtween y
+                    if(myStart >= tryStart and myStart <= tryEnd):
+                        rentValid = False
+                    if(myEnd >= tryStart and myEnd <= tryEnd):
+                        rentValud = False
+                    if(tryStart >= myStart and tryStart <= myEnd):
+                        rentValid = False
+                    if(tryEnd >= myStart and tryEnd <= myEnd):
+                        rentValud = False
+
+    #print("The new path is:" + newPath)
+    if(rentValid == True):
+        for house in property.objects.all():
+            #print("Looking at " + house.Name + " and " + newPath[2])
+            if house.Name == newPath[2]:
+                foundProp = house
+                foundProp.Rent = 0
+                myPythonList = []
                 myPythonList.append(rentInfo)
-            else:
-                print("EMPYT******")
-            print("FULL LIST!!!!!")
-            print(myPythonList)
-            print("end of list------------------")
-            foundProp.RentSlots = json.dumps(myPythonList)
-            foundProp.save()
-            print("FOUND")
+                text = foundProp.RentSlots
+                #print("THE TEXT OF TExT @$#$#")
+                print(text)
+                if(text):
+                    #print("NOT*EMPTY^^^^")
+                    myPythonList = jsonDec.decode(foundProp.RentSlots)
+                    myPythonList.append(rentInfo)
+                else:
+                    print("EMPYT******")
+                #print("FULL LIST!!!!!")
+                print(myPythonList)
+                #print("end of list------------------")
+                foundProp.RentSlots = json.dumps(myPythonList)
+                foundProp.save()
+                #print("FOUND")
     print("-----------RENTING----------")
     print(request.path)
-    print("beach_homepage/index.html")
-    print(newPath)
+    #print("beach_homepage/index.html")
+    #print(newPath)
     newPath = "/beach_homepage/prop_info/" + newPath[2]
-    print("NOW NEW PATH IS!!! = " + newPath)
-    print("---------------------")
+    #print("NOW NEW PATH IS!!! = " + newPath)
+    #print("---------------------")
     #beach_redirect(newPath)
     #return render_to_response("/beach_homepage/prop_info/property_search.html",{'list':foundProp},context)
     #return HttpResponseRedirect("/beach_homepage/property_search.html")
