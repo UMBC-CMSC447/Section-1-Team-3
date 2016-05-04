@@ -125,9 +125,11 @@ def beach_prop_info(request, data):
     foundProp = property.objects.all()
     newPath = request.path[1:]
     newPath = re.split('/',newPath)
-    print("The new path is:" + newPath[2])
+    username = str(request.user)
+    canRate = False
+    #print("The new path is:" + newPath[2])
     for house in property.objects.all():
-        print("Looking at " + house.Name + " and " + newPath[2])
+        #print("Looking at " + house.Name + " and " + newPath[2])
         if house.Name == newPath[2]:
             foundProp = house
             text = foundProp.RentSlots
@@ -139,15 +141,21 @@ def beach_prop_info(request, data):
                 slot = re.split(',',slot)
                 listToSend.append(slot)
                 print(slot)
-            print("*****LIST OF RENTS TO SEND********")
+            #print("*****LIST OF RENTS TO SEND********")
             print(listToSend)
             foundProp.RentSlots = listToSend
-            print("TEST098098")
+            #print("TEST098098")
             print(foundProp.RentSlots)
-            if house.Location in dict:
-                place_lat = dict[house.Location][0]
-                place_long = dict[house.Location][1]
-            print("FOUND")
+            #if house.Location in dict:
+            #    place_lat = dict[house.Location][0]
+            #    place_long = dict[house.Location][1]
+            #print("FOUND")
+
+    print("&&looking at slots&&")
+    for slot in foundProp.RentSlots:
+        if(str(slot[0]) == str(username)):
+                canRate = True
+
     print("-----------INDEX----------")
     print(request.path)
     print("beach_homepage/index.html")
@@ -157,7 +165,7 @@ def beach_prop_info(request, data):
     print("CONTECXT")
     print(context)
     message = ""
-    return render_to_response(newPath,{'list':foundProp, 'message': message},context)
+    return render_to_response(newPath,{'list':foundProp, 'message':message, 'canRate':canRate},context)
 
 
 

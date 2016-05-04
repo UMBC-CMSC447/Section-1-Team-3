@@ -1468,7 +1468,7 @@
 					<span>Owner:{{ list.Owner }} </span><br>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
-					{% if user.username in list.RentSlots %}
+					{% if canRate %}
 
 									<form method="post" id="rating" name="rateForm" action="/beach_homepage/rate_prop/{{list.Name}}">
 										{% csrf_token %}
