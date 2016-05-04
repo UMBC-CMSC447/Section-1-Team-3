@@ -7,3 +7,11 @@ save user first name last name to database
 add escape key space into property names
 
 disallow property creation when not logged in
+
+make rating display starts instead of number, or number AND stars
+
+make rating not allowed to rate more than once, or limit it to the amount of times property has been booked
+
+when creating property as regular user, display Approval Status when not approved (ei. after creation, property should say UNNAPPROVED)
+
+userpages have unique URL
