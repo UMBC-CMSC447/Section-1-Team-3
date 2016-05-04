@@ -61,7 +61,7 @@
 							<header>
 								<h2>Create User Form</h2>
 								<span class="byline">Form entry</span>
-								    <form method="post" action="create_user.html">{% csrf_token %}
+								    <form method="post" action="create_user.html" enctype = "multipart/form-data">{% csrf_token %}
 								        <table border="0">
 								            {{ form.as_table }}
 								        </table>

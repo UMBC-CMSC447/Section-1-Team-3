@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.shortcuts import render
 from beach_homepage.models import property
+from polls.models import UserAvatar
 from beach_homepage.forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -57,7 +58,15 @@ def index(request):
             #print("FOUND A HOUSE")
 
     if(newPath == "beach_homepage/user_profile.html"):
-        return render_to_response(newPath,{'list':properties},context)
+        print("!!!!GOING TO USER PROFILE!!!!")
+        image = ""
+        useObj = UserAvatar.objects.all()
+        for obj in useObj:
+            print("Looking at")
+            if str(obj.username) == str(username):
+                print("FOUND THE PROPER AVATAR")
+                image = obj.avatar
+        return render_to_response(newPath,{'list':properties, 'avatar':image},context)
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
@@ -370,10 +379,11 @@ def propregister_success(request):
     return render_to_response(
     '/beach_homepage/property_search.html',
     )
+@csrf_protect
 def beach_userregister(request):
         print("I AM CALLED!!!")
         if request.method == 'POST':
-            form = RegistrationForm(request.POST)
+            form = RegistrationForm(request.POST,request.FILES)
             if form.is_valid():
                 user = User.objects.create_user(
                 username=form.cleaned_data['username'],
@@ -384,6 +394,12 @@ def beach_userregister(request):
                 username = form.cleaned_data['username'],
                 avatar = form.cleaned_data['avatar']
                 )
+                print("AVATARTHINGS!!!!!")
+                print(form.cleaned_data['avatar'])
+                print(request.FILES)
+                print("POST")
+                print(request.POST)
+                print(form.cleaned_data['username'])
                 print("FORM WAS VALID AND REGISTERED")
                 return HttpResponseRedirect('user_profile.html')
         else:
