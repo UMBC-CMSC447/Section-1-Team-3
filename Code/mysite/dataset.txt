@@ -1,0 +1,70 @@
+Beach House 00
+80000
+Ocean City
+ImageTest
+This is example beach house number 0 in ocean city.
+38.3847
+-75.0678
+Beach House 01
+60000
+Ocean City
+ImageTest
+This is example beach house number 1 in ocean city.
+38.3795
+-75.073
+Beach House 02
+100000
+Ocean City
+ImageTest
+This is example beach house number 2 in ocean city.
+38.3963
+-75.0562
+Beach House 03
+80000
+Ocean City
+ImageTest
+This is example beach house number 3 in ocean city.
+38.3839
+-75.0686
+Beach House 04
+40000
+Ocean City
+ImageTest
+This is example beach house number 4 in ocean city.
+38.3938
+-75.0587
+Beach House 05
+70000
+Ocean City
+ImageTest
+This is example beach house number 5 in ocean city.
+38.395
+-75.0575
+Beach House 06
+20000
+Ocean City
+ImageTest
+This is example beach house number 6 in ocean city.
+38.3947
+-75.0578
+Beach House 07
+100000
+Ocean City
+ImageTest
+This is example beach house number 7 in ocean city.
+38.39
+-75.0625
+Beach House 08
+30000
+Ocean City
+ImageTest
+This is example beach house number 8 in ocean city.
+38.3927
+-75.0599
+Beach House 09
+60000
+Ocean City
+ImageTest
+This is example beach house number 9 in ocean city.
+38.3787
+-75.0739
