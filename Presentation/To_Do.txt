@@ -2,13 +2,13 @@ login | signup change to avatar | username | logout when signed up {DONE}
 
 create user redirects to user sign in page	{DONE}
 
-add escape key space into property names
+add escape key space into property names {Not Worth}
 
 disallow property creation when not logged in {DONE}
 
-make rating display starts instead of number, or number AND stars
+make rating display starts instead of number, or number AND stars {NOT Worth}
 
-make rating not allowed to rate more than once, or limit it to the amount of times property has been booked 
+make rating not allowed to rate more than once, or limit it to the amount of times property has been booked {DONE}
 
 userpages have unique URL
 	Easy because of Matts solution to have a sepearte data object for users:

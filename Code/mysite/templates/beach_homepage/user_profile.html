@@ -145,7 +145,7 @@
 								<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
 								<span>Price per Night: {{ property.Price }} </span>
 								<span>Location: {{ property.Location }} </span>
-								<span>Owner: {{ property.Owner }} </span>
+									<span><a href="/beach_homepage/user_info/{{property.Owner}}">Owner: {{ property.Owner }} </a> </span>
 								{% if property.Approval  == 0 %}
 								<span><p><font color="red">Not Approved</font></p></span>
 								{%endif%}
@@ -179,7 +179,7 @@
 									<span ><a href="/beach_homepage/prop_info/{{property.Name}}"> {{ property.Name }} </a></span>
 									<span>Price per Night: {{ property.Price }} </span>
 									<span>Location: {{ property.Location }} </span>
-									<span>Owner: {{ property.Owner }} </span>
+										<span><a href="/beach_homepage/user_info/{{property.Owner}}">Owner: {{ property.Owner }} </a> </span>
 									<br>
 									<img src="{{property.Image.url}}"alt="BeachHouse" style="width:304px;height:228px;">
 									<br>

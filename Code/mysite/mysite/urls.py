@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from beach_homepage.views import search
 from beach_homepage.views import sort
 from beach_homepage.views import beach_propregister
+from beach_homepage.views import beach_user_info
 from beach_homepage.views import beach_userregister
 from beach_homepage.views import beach_prop_info
 from beach_homepage.views import beach_index
@@ -57,6 +58,7 @@ urlpatterns = patterns('',
     url(r'^beach_homepage/create_user.html',beach_userregister),
     url(r'^beach_homepage/prop_info/index.html',beach_index),
     url(r'^beach_homepage/prop_info/(.*)',beach_prop_info),
+    url(r'^beach_homepage/user_info/(.*)',beach_user_info),
     #it is important that this goes last like it is
     url(r'^beach_homepage/(.*)', include('beach_homepage.urls')),
 ) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

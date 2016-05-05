@@ -1465,7 +1465,7 @@
 			</section>
 					<span>Price per Night: {{ list.Price }} </span>
 					<span>Location: {{ list.Location }} </span>
-					<span>Owner:{{ list.Owner }} </span><br>
+						<span><a href="/beach_homepage/user_info/{{list.Owner}}">Owner: {{ list.Owner }} </a> </span>
 					<span> {{ list.Description}} </span> <br>
 					<span> RATING =  {{ list.Rating}} </span> <br>
 					{% if canRate %}

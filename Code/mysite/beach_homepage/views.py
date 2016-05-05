@@ -118,6 +118,38 @@ def beach_redirect(request):
     print("---------------------")
     return HttpResponseRedirect(newPath)
 
+def beach_user_info(request, data):
+    print("&&&USERINGOFOFOFO")
+    print(data)
+    print(request.path)
+    print("AFter new things")
+    useObj = UserAvatar.objects.all()
+    context = RequestContext(request)
+    #to parse request object
+    #https://code.djangoproject.com/wiki/HttpRsequest
+    newPath = request.path[1:]
+    newPath = re.split('/',newPath)
+    username = str(newPath[2])
+    print("-----------FINDING ALL TEH USERS----------")
+    print(request.path)
+    print("beach_homepage/index.html")
+    print(newPath)
+    newPath = "/" + newPath[0] + "/" + newPath[2]
+    newPath = "beach_homepage/user_info.html"
+    print("now")
+    print(newPath)
+    print("---------------------")
+    foundUsername = ""
+    foundAvatar = ""
+    foundUsername = username
+    for obj in useObj:
+        print("Looking at")
+        if str(obj.username) == str(username):
+            print("FOUND THE PROPER AVATAR")
+            foundAvatar = obj.avatar
+    return render_to_response(newPath,{'username':foundUsername, 'Image':foundAvatar},context)
+
+
 def beach_prop_info(request, data):
     jsonDec = json.decoder.JSONDecoder()
     context = RequestContext(request)
