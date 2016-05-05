@@ -10,7 +10,7 @@ make rating display starts instead of number, or number AND stars {NOT Worth}
 
 make rating not allowed to rate more than once, or limit it to the amount of times property has been booked {DONE}
 
-userpages have unique URL
+userpages have unique URL {DONE}
 	Easy because of Matts solution to have a sepearte data object for users:
 	we have a user view page that has the info from the user view objects
 	since the actual user objects are not sent even the hashed password is sent
